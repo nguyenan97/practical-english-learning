@@ -1,10 +1,13 @@
+---
+layout: default
+title: Multi-Context Vocabulary Method
+---
+
 # English Learning Method — Multi-Context Vocabulary
 
 ## Goal
 
 Build **active English** for thinking, speaking, listening, reading, and writing.
-
-The main principle is:
 
 **Situation / idea → English**
 
@@ -30,7 +33,7 @@ Example with **GET**:
 - get better
 - get back to someone
 
-The goal is to understand what the word means **inside each context**.
+Understand what the word means **inside each context**.
 
 ## 2. Learn chunks and collocations
 
@@ -42,11 +45,11 @@ Treat common expressions as one unit:
 - **I have no idea.**
 - **I'll do my best.**
 
-Do not build these sentences word by word while speaking. The goal is automatic retrieval of the whole chunk.
+Do not build these sentences word by word while speaking. Retrieve the whole chunk automatically.
 
 ## 3. Connect contexts with a core idea
 
-Do not memorize many unrelated dictionary definitions. Understand the mental connection between uses.
+Do not memorize unrelated dictionary definitions. Understand the mental connection between uses.
 
 Example: **GET** often involves movement or change:
 
@@ -59,8 +62,6 @@ Example: **GET** often involves movement or change:
 This creates a semantic network around the word.
 
 ## 4. Use many real-life contexts
-
-For each word, learn examples from multiple domains.
 
 ### Daily life
 
@@ -82,11 +83,9 @@ For each word, learn examples from multiple domains.
 - communication
 - deadlines
 
-Prefer sentences that could actually appear in your own life.
+Prefer sentences that could actually occur in real life.
 
 ## 5. Learn through Question → Answer conversations
-
-Each word should also appear in natural dialogue.
 
 Example with **DO**:
 
@@ -102,8 +101,6 @@ Example with **DO**:
 This teaches vocabulary as part of conversation rather than isolated sentences.
 
 ## 6. Compare similar high-frequency words
-
-Connect new words with previously learned words.
 
 - **I got some coffee.** → obtained/bought it
 - **I made some coffee.** → prepared it
@@ -127,11 +124,9 @@ During English-learning sessions:
 - Avoid translation unless specifically requested.
 - Focus on understanding from context.
 
-This supports the habit of **thinking directly in English**.
+This supports **thinking directly in English**.
 
 ## 8. Use all language skills
-
-A word is not learned just because its meaning is recognized.
 
 ### Read
 Read natural examples in different contexts.
@@ -143,34 +138,30 @@ Notice the word and its chunks in natural speech.
 Say the chunks and sentences aloud.
 
 ### Write
-Create sentences related to your real life and work.
+Create sentences related to realistic daily-life and work situations.
 
 ### Think
 Use the word during English inner speech/self-talk.
 
-The final target is **active retrieval**, not passive recognition.
+The target is **active retrieval**, not passive recognition.
 
 ## 9. Personalize sentences
 
-Prefer:
+Prefer first-person sentences that can map to a real situation:
 
 > I have a meeting this morning.
 
-over generic textbook sentences such as:
-
-> John has a meeting.
+instead of named textbook characters.
 
 Prefer:
 
 > I need to make some changes to the API.
 
-if this is something you could actually say at work.
+when it represents a realistic work situation.
 
-Personal relevance makes vocabulary easier to retrieve later.
+Personal relevance makes vocabulary easier to retrieve later, but examples should not expose identifying information.
 
 ## 10. Build English inner speech
-
-Use learned chunks while thinking during normal activities:
 
 - **I need to get ready.**
 - **I've got a lot to do.**
@@ -193,7 +184,7 @@ Example starter sequence:
 4. **HAVE**
 5. **DO**
 
-Continue with common verbs and words that appear across many daily and work contexts.
+Continue with common words that appear across many daily and work contexts.
 
 ## 12. Lesson format
 
@@ -213,10 +204,6 @@ Each vocabulary lesson should contain:
 Do not add a detailed study plan or quick-practice section unless requested.
 
 ## Core principle
-
-Do not aim to know the translation of thousands of words.
-
-Aim to build:
 
 **context → meaning → English chunk → automatic use**
 
