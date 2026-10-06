@@ -1,0 +1,6 @@
+title: Practical English Learning
+description: Context-first English learning resources and Agent Skill
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+  - jekyll-remote-theme
+show_downloads: false
