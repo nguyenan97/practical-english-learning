@@ -1,3 +1,8 @@
+---
+layout: default
+title: Learning Log Template
+---
+
 # English Learning Log
 
 Use one entry per completed lesson.
@@ -19,8 +24,8 @@ new_chunks:
   - Do you mean ...?
   - If I understand correctly, ...
 source_types:
-  - project
-  - microsoft
+  - local
+  - official-docs
 mastery: 3
 weak_points:
   - article usage
