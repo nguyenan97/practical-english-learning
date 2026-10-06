@@ -1,26 +1,25 @@
-# Speaking Reflex Scenarios
+---
+layout: default
+title: Speaking Reflex Scenarios
+---
 
-This source was converted from a three-page English speaking-practice reference document.
+# Speaking Reflex Scenarios
 
 ## Speaking-session workflow
 
-The learner practices English speaking reflexes through short, natural phrases rather than textbook-style conversation.
+Practice English speaking reflexes through short, natural phrases rather than textbook-style conversation.
 
-A session follows this pattern:
-
-1. The learner provides a **situation**, **English level**, **difficulty**, and **style**.
+1. Choose a **situation**, **English level**, **difficulty**, and **style**.
 2. Keep the selected situation in context.
-3. The learner starts voice practice and says `Hello`.
-4. Start with an English question appropriate to the situation.
+3. Start voice practice with `Hello`.
+4. Begin with an English question appropriate to the situation.
 5. Continue with alternating short English turns.
-6. The learner can say `End this session` to finish.
-7. At the end, provide feedback on fluency/coherence, word choice, grammar, and naturalness.
+6. Say `End this session` to finish.
+7. At the end, review fluency/coherence, word choice, grammar, and naturalness.
 
-When the learner asks **"What should I say next?"**, provide a concise phrase or hint that allows the conversation to continue. After the learner repeats/responds, resume the conversation.
+When the learner asks **"What should I say next?"**, provide one concise phrase or hint that allows the conversation to continue. After the learner repeats or responds, resume the conversation.
 
 ## Feedback format
-
-After a speaking session, feedback can be organized as:
 
 | Learner wording / issue | More natural version | Short reason + reusable example |
 |---|---|---|
@@ -34,13 +33,13 @@ Then suggest focused follow-up practice for the observed errors.
 
 - Order food at a fast-food restaurant.
 - Ask for directions to a bus station.
-- Describe your daily schedule.
+- Describe a daily schedule.
 - Arrange to meet a friend for coffee on the weekend.
 - Talk to a new neighbor.
 
 ### Work
 
-- Call to schedule a meeting with a partner/client.
+- Call to schedule a meeting.
 - Present work results in a meeting.
 - Apologize for missing or being late on a deadline.
 - Ask a colleague for help when overloaded.
@@ -60,14 +59,36 @@ Then suggest focused follow-up practice for the observed errors.
 - Start a conversation with a stranger in a park.
 - Give and respond to a compliment.
 - Share a funny memory.
-- Wish a colleague a happy birthday.
+- Wish someone a happy birthday.
 
-## Difficulty and style dimensions
+## Difficulty
 
-The source uses CEFR-style levels from **A1** through **C2** and varies conversational style, including natural, friendly, simple, formal, professional, academic, humorous, inspiring, energetic, and confident.
+Use CEFR-style levels from **A1** through **C2**.
 
-The important design principle is to adjust vocabulary and response complexity to the learner while keeping the conversation natural and interactive.
+Example progression:
 
-## Source note
+| Level | Difficulty |
+|---|---|
+| A1 | Very easy |
+| A2 | Easy |
+| B1 | Medium |
+| B2 | Light challenge |
+| C1 | Hard |
+| C2 | Very hard |
 
-Converted and normalized from the project PDF `English.pdf`. The wording here is structured as Markdown rather than reproducing the original page layout.
+## Style
+
+Possible styles include:
+
+- natural;
+- friendly;
+- simple;
+- formal;
+- professional;
+- academic;
+- humorous;
+- inspiring;
+- energetic;
+- confident.
+
+Adjust vocabulary and response complexity to the learner's level while keeping the conversation natural and interactive.
