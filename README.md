@@ -1,30 +1,21 @@
 # Practical English Learning
 
-A practical, context-first English learning repository focused on **active English**: thinking, speaking, listening, reading, and writing without translating sentence-by-sentence from another language.
+A context-first English learning repository focused on **active English**: thinking, speaking, listening, reading, and writing without sentence-by-sentence translation.
 
 ## Core idea
 
 > situation / idea → English
 
-The learning loop is:
-
 > context → meaning → English chunk → automatic retrieval → natural use
 
-This repository favors:
-
-- high-frequency, high-utility English;
-- chunks and collocations instead of isolated word translations;
-- multi-context learning across daily life, work, social situations, and travel;
-- Question → Answer conversations;
-- active retrieval and spaced review;
-- short, natural phrases that people actually use;
-- speaking reflex and productive practice;
-- technical English when useful.
+The repository favors high-frequency English, chunks/collocations, multi-context learning, Q → A conversation, active retrieval, spaced review, speaking reflex, and practical technical English.
 
 ## Repository structure
 
 ```text
 .
+├── index.md
+├── _config.yml
 ├── README.md
 ├── agent-skill/
 │   ├── SKILL.md
@@ -38,14 +29,32 @@ This repository favors:
     └── learning-log-template.md
 ```
 
+## Content-only source policy
+
+Files under `sources/` are sanitized learning content, not document archives.
+
+Conversion rules:
+
+- keep pedagogically useful content;
+- remove personal names and identifying details;
+- remove company, organization, customer, project, account, and other identifying names;
+- remove author/collector/uploader metadata;
+- remove contact details, IDs, headers, footers, page numbers, watermarks, and provenance metadata;
+- generalize named examples when identity is not needed for learning;
+- preserve useful categories, phrases, scenarios, and teaching structure.
+
+See `agent-skill/source-policy.md` for the full rule set.
+
 ## Agent Skill
 
-`agent-skill/SKILL.md` defines an AI-assisted daily English learning workflow. It is designed to produce compact, non-duplicate, practice-heavy lessons using context, chunks, retrieval, and spaced review.
+`agent-skill/SKILL.md` defines the daily English learning workflow: source-first lesson selection, non-duplication, retrieval practice, spaced review, speaking mode, correction policy, and source sanitization.
 
-## Source notes
+## GitHub Pages
 
-Some material in `sources/` originated from reference documents used while developing this learning system. Source-derived material is identified inside the relevant file. The common-phrases reference is intentionally represented as a source index/usage guide rather than republishing the complete collected phrase document.
+The repository includes Jekyll configuration and `index.md` so Markdown can be rendered as navigable HTML through GitHub Pages.
 
-## Contributing
+Expected site URL after Pages is enabled for the `main` branch/root:
 
-Contributions that improve naturalness, modern usage, lesson design, speaking practice, or source quality are welcome. Prefer concise examples and explain why a phrase works in context.
+`https://<owner>.github.io/practical-english-learning/`
+
+The Pages home page links directly to the rendered learning method, sources, Agent Skill, source policy, and learning-log template.
