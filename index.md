@@ -7,6 +7,10 @@ title: Practical English Learning
 
 A content-first English learning repository focused on active retrieval, speaking reflex, natural chunks, and multi-context vocabulary.
 
+## Lessons
+
+- [Lesson 1 — GET in Context (with answer key)](lessons/2026-10-07-get-in-context.html)
+
 ## Learning method
 
 - [Multi-Context Vocabulary Method](methods/multi-context-vocabulary.html)
