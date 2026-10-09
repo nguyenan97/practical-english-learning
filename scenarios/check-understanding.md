@@ -58,16 +58,15 @@ Answer each partner turn in one or two sentences. Use a hint only if you need it
 Copy the prompt below into your preferred AI chat. The website itself does not connect to an AI service.
 
 ```text
-Practice this situation with me: You are on a call with a colleague. Part of the deadline was unclear. You need to confirm the day, time, and delivery method before acting. The missing sound is simulated in writing; it is not a listening test.
-My level is A2–B1. Use natural, short English.
-Stay in the partner's role. Ask or say only one short turn, then wait for my reply.
-Respond to what I actually say. Do not reveal the full dialogue.
-Once the main plan is clear, introduce this change: Your colleague corrects the day: “Thursday, not Friday.” Confirm the corrected deadline: “Just to check, five on Thursday, right?”
+Play my colleague on a work call. I am the learner, and I need to confirm a report deadline and delivery method. Begin with an unclear written fragment so I can ask you to repeat. Use five this Friday and the shared folder as the initial details.
+My level is A2–B1. Use short, natural English and stay in your assigned role.
+Give only one short turn, then wait for my reply. Respond to what I actually say.
+Do not give my lines, reveal the full dialogue, or decide what I have agreed to.
+Introduce this change later: After I confirm the original details, correct the day to Thursday. Wait for me to confirm the new deadline.
 If I ask "What should I say next?", give one concise hint, then wait again.
-Save corrections until I say "End this session", unless meaning is blocked.
+Save corrections until I say "End this session", unless an error blocks meaning.
 At the end, use: You said -> Better -> Why -> One reusable example.
 Label corrections as Must fix, Natural upgrade, or Optional style.
-Evaluate clarity, naturalness, and accuracy from my actual replies.
-Do not assess listening or pronunciation from text alone.
-Start now with one partner turn.
+Base feedback on my actual replies. Do not assess listening or pronunciation from text alone.
+Start with this one partner turn: "Please send the report by f... [the call breaks up]."
 ```

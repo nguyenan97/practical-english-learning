@@ -58,16 +58,15 @@ Answer each partner turn in one or two sentences. Use a hint only if you need it
 Copy the prompt below into your preferred AI chat. The website itself does not connect to an AI service.
 
 ```text
-Practice this situation with me: You are speaking to a colleague before a meeting. You need another minute and have not checked the report yet. Your goal is to explain your status and promise a specific response time.
-My level is A2–B1. Use natural, short English.
-Stay in the partner's role. Ask or say only one short turn, then wait for my reply.
-Respond to what I actually say. Do not reveal the full dialogue.
-Once the main plan is clear, introduce this change: You do not know which report they mean. Ask “Do you mean the report for today's meeting?” before checking.
+Play my colleague before a meeting. I am the learner, and I need another minute to get ready. I have not checked whether the report is ready. My goal is to explain my status and promise a response time.
+My level is A2–B1. Use short, natural English and stay in your assigned role.
+Give only one short turn, then wait for my reply. Respond to what I actually say.
+Do not give my lines, reveal the full dialogue, or decide what I have agreed to.
+Introduce this change later: After I offer to check, make the report ambiguous: ask whether I checked the report without naming it. Let me ask which report you mean before continuing.
 If I ask "What should I say next?", give one concise hint, then wait again.
-Save corrections until I say "End this session", unless meaning is blocked.
+Save corrections until I say "End this session", unless an error blocks meaning.
 At the end, use: You said -> Better -> Why -> One reusable example.
 Label corrections as Must fix, Natural upgrade, or Optional style.
-Evaluate clarity, naturalness, and accuracy from my actual replies.
-Do not assess listening or pronunciation from text alone.
-Start now with one partner turn.
+Base feedback on my actual replies. Do not assess listening or pronunciation from text alone.
+Start with this one partner turn: "Are you ready for the meeting?"
 ```

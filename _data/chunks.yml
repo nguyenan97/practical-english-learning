@@ -59,7 +59,7 @@
   meaning: Ask someone to repeat their words.
   situation: You missed part of what someone said.
   example: Sorry, could you say that again, please?
-  cue: Please send it by fifteen ... [unclear].
+  cue: Please send it by f... [the call breaks up].
   variant: Could you repeat that, please?
   note: Could you is a polite request.
   register: polite
@@ -70,7 +70,7 @@
   meaning: Ask someone to reduce their speaking speed.
   situation: The words are coming too fast.
   example: Could you speak a little more slowly?
-  cue: Turnleftatthecornerthen ...
+  cue: Turn left at the corner, then... [spoken too quickly]
   variant: A little more slowly, please.
   note: Use slowly to describe how someone speaks.
   register: polite
@@ -116,7 +116,8 @@
   example: How about three thirty?
   cue: What time should we meet?
   variant: How about meeting after lunch?
-  note: Use a noun or -ing form, not a bare verb.
+  note: 'Use a noun or an -ing form after How about. A full clause also works: How about we meet at three? Avoid
+    How about meet at three?'
   register: conversational
   lesson_id: EN-20261009-arrange-a-time
 - id: works-for-me
@@ -198,7 +199,7 @@
   lesson_id: null
 - id: ill-have
   group: service
-  text: I'll have ... , please.
+  text: I'll have ..., please.
   meaning: Choose food or a drink when ordering.
   situation: A server asks for your order.
   example: I'll have a cup of tea, please.

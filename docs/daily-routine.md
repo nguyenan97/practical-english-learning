@@ -1,38 +1,38 @@
 ---
-title: Cách luyện trong một buổi học
-lang: vi
+title: Your Daily Practice
+lang: en
 ---
 
-# Từ một tình huống đến câu bạn tự nói được
+# From a situation to a sentence you can say
 
-## 1. Nhớ lại trước khi đọc
+## 1. Recall before you read
 
-Ví dụ: “Bạn chưa nghe rõ giờ hẹn.” Đừng mở bảng câu ngay. Tự nói một câu bằng tiếng Anh. Nói chưa tự nhiên vẫn là một lần thử có ích để biết bạn đang thiếu gì.
+Imagine you missed the meeting time. Before opening the phrase list, try a reply in English. An imperfect attempt helps you see what you need to practice.
 
-## 2. Học ít, nhưng dùng nhiều
+## 2. Learn a few phrases and use them often
 
-Đọc “Could you say that again, please?” và hình dung một cuộc gọi bị ngắt quãng. Nói câu đó. Sau đó đổi thành “Could you say the time again, please?”
+Read “Could you say that again, please?” Picture a call with an unclear connection. Say the phrase. Then change it: “Could you say the time again, please?”
 
-Không cần tìm một từ tiếng Việt tương ứng cho từng từ trong câu. Hiểu việc câu này giúp bạn làm: nhờ người khác nói lại.
+Focus on what the phrase helps you do: ask someone to repeat. You do not need to translate every word before speaking.
 
-## 3. Luyện từ dễ đến khó
+## 3. Move from support to independence
 
-- **Có mẫu:** giữ khung và đổi giờ, nơi hoặc hoạt động.
-- **Ít hỗ trợ:** nhìn tình huống, tự nhớ câu.
-- **Hội thoại:** trả lời người đối thoại rồi hỏi tiếp điều liên quan.
-- **Đổi tình huống:** thời gian không phù hợp hoặc câu trả lời bị sửa.
-- **Cá nhân hóa:** nói một câu đúng với đời sống của bạn, không đưa thông tin riêng tư lên repo.
+- **With a model:** keep the frame and change the time, place, or activity.
+- **Without the model:** look at a situation and recall a phrase.
+- **In conversation:** answer your partner, then ask a related question.
+- **With a change:** respond when a time does not work or a detail is corrected.
+- **In your life:** create a sentence that fits your day. Keep private details out of the public repository.
 
-Có thể đọc mẫu rồi nhắc lại để tập nói. Trang chưa có bản thu âm, nên thao tác này không thay thế việc luyện nghe với âm thanh thật.
+Read and repeat the model to practice saying it. The site has no recorded audio, so this does not replace listening practice with real speech.
 
-## 4. Tự kiểm tra và quay lại sau một hoạt động khác
+## 4. Check, take a short break, and recall again
 
-Làm exit task không nhìn ghi chú. Sau đó kể về buổi sáng trong một phút và gọi lại các cụm câu đã học. Nếu quên, xem lại một gợi ý rồi thử bằng ví dụ mới.
+Try the exit task without notes. Then talk about your morning for one minute and recall the target chunks again. If you forget one, use a short hint and retry with a new example.
 
-Phân biệt hai việc: chuyển sang bước tiếp theo chỉ thay đổi phần đang xem; lưu tự đánh giá ghi lại lần bạn đã tự thử sử dụng tiếng Anh.
+Moving to the next step changes what you see. Saving a self-assessment records an attempt to use the English yourself. These are different actions.
 
-## Khi luyện với AI
+## Practice with an AI partner
 
-Mở một [scenario]({{ '/scenarios/' | relative_url }}), sao chép prompt vào công cụ AI bạn dùng. AI hỏi một lượt, chờ bạn trả lời rồi tiếp tục theo điều bạn thực sự nói. Khi cần, hỏi “What should I say next?” để nhận một gợi ý ngắn.
+Open a [conversation scenario]({{ '/scenarios/' | relative_url }}) and copy its prompt into your preferred AI chat. The partner should give one turn, wait for your reply, and respond to what you actually say. Ask “What should I say next?” if you need a short hint.
 
-Website có kịch bản từng lượt để tự luyện; website không tự kết nối AI và không chấm phát âm. Trong chat văn bản, chỉ đánh giá được những câu bạn nhập.
+The website offers scripted turns for independent practice. It does not connect to an AI service or assess pronunciation. In a text chat, feedback can cover the replies you type; it cannot establish listening or pronunciation performance.

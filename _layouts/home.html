@@ -5,26 +5,24 @@ layout: default
 {% assign first_lesson = lessons.first %}
 <section class="home-hero">
   <div class="hero-copy">
-    <p class="eyebrow"><span class="green-dot"></span> TIẾNG ANH CHO CUỘC SỐNG THẬT</p>
+    <p class="eyebrow"><span class="green-dot"></span> ENGLISH FOR REAL LIFE</p>
     <h1>
-      Học một chút.<br>
-      Nói được <span>mỗi ngày.</span>
+      Learn a little.<br>
+      Say more <span>every day.</span>
     </h1>
-    <p class="hero-description">
-      Không cần học thuộc cả danh sách. Mỗi ngày, luyện vài câu hữu ích và dùng chúng trong một cuộc trò chuyện.
-    </p>
+    <p class="hero-description">Practice a few useful phrases each day. Then use them in a real conversation.</p>
     <div class="hero-actions">
       <a class="button primary" id="today-link" href="{{ first_lesson.url | relative_url }}"
-        >Bắt đầu học hôm nay <span aria-hidden="true">→</span></a
-      ><a class="text-link" href="{{ '/docs/start-here.html' | relative_url }}">Mới bắt đầu? Xem cách học →</a>
+        >Start today’s lesson <span aria-hidden="true">→</span></a
+      ><a class="text-link" href="{{ '/docs/start-here.html' | relative_url }}">New here? Start with the guide →</a>
     </div>
-    <p class="hero-footnote">20 phút <span>·</span> A2–B1 <span>·</span> Nói trước, xem đáp án sau</p>
+    <p class="hero-footnote">20 min <span>·</span> A2–B1 <span>·</span> Try first. Check answers later.</p>
   </div>
-  <aside class="today-card" aria-label="Bài gợi ý">
+  <aside class="today-card" aria-label="Suggested lesson">
     <div class="today-card-top">
-      <span class="eyebrow">MỘT BƯỚC NHỎ HÔM NAY</span><span class="sun-mark" aria-hidden="true">✳</span>
+      <span class="eyebrow">ONE SMALL STEP TODAY</span><span class="sun-mark" aria-hidden="true">✳</span>
     </div>
-    <span class="tag soft-green" id="today-kind">Bài đầu tiên</span>
+    <span class="tag soft-green" id="today-kind">Your first lesson</span>
     <h2 id="today-title">{{ first_lesson.title }}</h2>
     <p id="today-description">{{ first_lesson.description }}</p>
     <div class="today-example">
@@ -34,83 +32,85 @@ layout: default
         Give me two minutes.”
       </p>
     </div>
-    <div class="today-card-bottom"><span>Nhìn tình huống. Tự nói một câu.</span><span aria-hidden="true">→</span></div>
+    <div class="today-card-bottom">
+      <span>Picture the situation. Try one sentence.</span><span aria-hidden="true">→</span>
+    </div>
   </aside>
 </section>
 <section class="daily-path" aria-labelledby="daily-path-title">
   <div class="section-intro">
-    <p class="eyebrow">CỨ THEO 4 BƯỚC NÀY</p>
-    <h2 id="daily-path-title">20 phút, một việc mỗi bước.</h2>
+    <p class="eyebrow">FOUR STEPS TO FOLLOW</p>
+    <h2 id="daily-path-title">20 min, one task at a time.</h2>
   </div>
   <ol class="routine-grid">
     <li>
       <span class="step-number">01</span>
       <div>
-        <h3>Nhớ lại <span>4 phút</span></h3>
-        <p>Tự nói câu đã học, chưa nhìn mẫu.</p>
+        <h3>Recall <span>4 min</span></h3>
+        <p>Recall a phrase without looking at the example.</p>
       </div>
     </li>
     <li>
       <span class="step-number">02</span>
       <div>
-        <h3>Học câu mới <span>4 phút</span></h3>
-        <p>3–5 cụm câu, có tình huống rõ ràng.</p>
+        <h3>Learn <span>4 min</span></h3>
+        <p>Learn 3–5 useful chunks in clear situations.</p>
       </div>
     </li>
     <li>
       <span class="step-number">03</span>
       <div>
-        <h3>Luyện nói <span>8 phút</span></h3>
-        <p>Đổi chi tiết. Hỏi và trả lời. Đóng vai.</p>
+        <h3>Practice <span>8 min</span></h3>
+        <p>Change the details. Ask, answer, and role-play.</p>
       </div>
     </li>
     <li>
       <span class="step-number">04</span>
       <div>
-        <h3>Tự kiểm tra <span>4 phút</span></h3>
-        <p>Thử không nhìn bài, rồi mới đối chiếu.</p>
+        <h3>Check <span>4 min</span></h3>
+        <p>Try without notes, then check your response.</p>
       </div>
     </li>
   </ol>
 </section>
 <section class="review-panel" id="review-panel" hidden>
   <div>
-    <p class="eyebrow">ÔN TRƯỚC KHI HỌC MỚI</p>
-    <h2>Các bài đến lượt ôn</h2>
-    <p>Dựa trên lần tự đánh giá bạn đã lưu trên trình duyệt này.</p>
+    <p class="eyebrow">RECALL BEFORE LEARNING MORE</p>
+    <h2>Ready for review</h2>
+    <p>Based on the self-assessments you saved in this browser.</p>
   </div>
   <ul id="review-list"></ul>
 </section>
 <section class="lessons-section">
   <div class="section-heading">
     <div>
-      <p class="eyebrow">BẮT ĐẦU TỪ NHỮNG VIỆC QUEN THUỘC</p>
-      <h2>Mỗi bài, một việc nói được.</h2>
+      <p class="eyebrow">START WITH EVERYDAY SITUATIONS</p>
+      <h2>One lesson. One useful skill.</h2>
     </div>
-    <a class="text-link" href="{{ '/lessons/' | relative_url }}">Xem bài học →</a>
+    <a class="text-link" href="{{ '/lessons/' | relative_url }}">Browse lessons →</a>
   </div>
   {% include lesson-cards.html %}
   <p class="small-note" id="progress-summary">
-    Chưa có tiến độ được lưu. Bạn có thể bắt đầu từ bài 01 hoặc chọn tình huống đang cần.
+    No progress saved yet. Start with lesson 01, or choose a situation you need today.
   </p>
 </section>
 <section class="bottom-grid">
   <a class="feature-card" href="{{ '/phrases/' | relative_url }}"
-    ><span class="eyebrow">KHI BẠN CẦN MỘT CÂU</span>
+    ><span class="eyebrow">WHEN YOU NEED THE RIGHT WORDS</span>
     <h2>“What should I say?”</h2>
-    <p>Tìm câu theo tình huống: hỏi lại, hẹn gặp, nhờ giúp đỡ và phản hồi công việc.</p>
-    <span class="text-link">Mở sổ câu thường dùng →</span></a
+    <p>Find phrases for asking again, making plans, getting help, and responding at work.</p>
+    <span class="text-link">Explore useful phrases →</span></a
   ><a class="feature-card green-card" href="{{ '/scenarios/' | relative_url }}"
-    ><span class="eyebrow">BIẾN CÂU MẪU THÀNH PHẢN XẠ</span>
-    <h2>Luyện một cuộc trò chuyện.</h2>
-    <p>Đóng vai, trả lời từng lượt và thử khi tình huống thay đổi.</p>
-    <span class="text-link">Chọn tình huống luyện nói →</span></a
+    ><span class="eyebrow">TURN PHRASES INTO CONVERSATION</span>
+    <h2>Practice a conversation.</h2>
+    <p>Take a role, reply one turn at a time, and adapt when the situation changes.</p>
+    <span class="text-link">Choose a conversation →</span></a
   >
 </section>
 <noscript>
   <p class="notice">
-    Bạn vẫn đọc và luyện được tất cả bài học. Bật JavaScript nếu muốn chia bài thành từng bước và lưu tự đánh giá trên
-    trình duyệt.
+    All lessons still work without JavaScript. Enable it to view one step at a time and save self-assessments in this
+    browser.
   </p>
 </noscript>
 {{ content }}

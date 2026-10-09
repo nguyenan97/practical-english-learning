@@ -1,20 +1,20 @@
 - id: daily
-  title: Chuẩn bị & kể chuyện mỗi ngày
+  title: Getting ready & talking about your day
 - id: opening
-  title: Bắt đầu & kết thúc trò chuyện
+  title: Starting & ending a conversation
 - id: repeat
-  title: Nghe chưa rõ
+  title: Asking someone to repeat
 - id: clarify
-  title: Kiểm tra mình hiểu đúng
+  title: Checking understanding
 - id: thinking
-  title: Cần thời gian suy nghĩ
+  title: Taking time to think
 - id: help
-  title: Nhờ giúp đỡ
+  title: Asking for & offering help
 - id: planning
-  title: Hẹn thời gian
+  title: Making plans
 - id: service
-  title: Mua sắm, gọi món & hỏi đường
+  title: Shopping, ordering & directions
 - id: work
-  title: Phản hồi công việc
+  title: Responding at work
 - id: opinions
-  title: Đồng ý & đề xuất
+  title: Agreeing & suggesting alternatives

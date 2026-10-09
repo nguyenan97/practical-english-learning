@@ -72,20 +72,20 @@
     homeLink.href = suggested.url;
     document.getElementById("today-title").textContent = suggested.title;
     const isReview = Boolean(progress[suggested.id]);
-    homeLink.textContent = `${isReview ? "Ôn bài hôm nay" : "Bắt đầu học hôm nay"} →`;
+    homeLink.textContent = `${isReview ? "Review today" : "Start today’s lesson"} →`;
     document.getElementById("today-kind").textContent = due.length
-      ? "Đến lượt ôn"
+      ? "Time to review"
       : weak
-        ? "Luyện lại một chút"
+        ? "Practice again"
         : unseen
-          ? "Bài tiếp theo"
-          : "Tự chọn bài ôn";
+          ? "Your next lesson"
+          : "Choose a lesson to revisit";
     if (!attempted.length)
-      document.getElementById("today-kind").textContent = "Bài đầu tiên";
+      document.getElementById("today-kind").textContent = "Your first lesson";
     if (suggested.id !== lessons[0]?.id || isReview) {
       document.getElementById("today-description").textContent = isReview
-        ? "Thử trả lời không nhìn mẫu, rồi tự đánh giá lại."
-        : "Một tình huống mới. Đi từng bước và nói thành tiếng.";
+        ? "Try without looking at the model, then assess your response again."
+        : "A new situation. Follow the steps and speak aloud.";
       const example = document.querySelector(".today-example");
       example.querySelector("span").textContent = isReview
         ? "RECALL BEFORE READING"
@@ -96,7 +96,7 @@
     }
     if (attempted.length)
       document.getElementById("progress-summary").textContent =
-        `Bạn đã tự đánh giá ${attempted.length}/${lessons.length} bài trên trình duyệt này. Đã đọc bài không đồng nghĩa đã nhớ.`;
+        `You’ve assessed ${attempted.length}/${lessons.length} lessons in this browser. Reading a lesson is not the same as recalling it.`;
     if (due.length) {
       document.getElementById("review-panel").hidden = false;
       const list = document.getElementById("review-list");
@@ -113,7 +113,7 @@
   document.querySelectorAll("[data-lesson-state]").forEach((node) => {
     const entry = progress[node.dataset.lessonState];
     if (entry)
-      node.textContent = `Đã tự thử · Mức ${entry.mastery}/4${entry.nextReview <= today ? " · Đến lượt ôn" : ""}`;
+      node.textContent = `Self-assessed · Level ${entry.mastery}/4${entry.nextReview <= today ? " · Time to review" : ""}`;
   });
 
   const workspace = document.querySelector(".lesson-workspace");
@@ -145,7 +145,7 @@
       previous.disabled = index === 0;
       next.hidden = index === steps.length - 1;
       document.getElementById("step-counter").textContent =
-        `Bước ${index + 1} / ${steps.length}`;
+        `Step ${index + 1} / ${steps.length}`;
       assessment.hidden = index !== steps.length - 1;
       answerKey.hidden = index !== steps.length - 1;
       if (index !== steps.length - 1) answerKey.open = false;
@@ -207,8 +207,8 @@
       };
       const status = document.getElementById("assessment-status");
       status.textContent = write(STATE_KEY, latest)
-        ? `Đã lưu mức ${mastery}/4. Ôn lại vào ${nextReview.split("-").reverse().join("/")}. Nếu vẫn khó nhớ, luyện lại ngay với một tình huống khác.`
-        : "Trình duyệt không cho lưu tiến độ. Bạn vẫn có thể học; hãy ghi kết quả vào learning log riêng.";
+        ? `Saved level ${mastery}/4. Next review: ${nextReview}. If recall is still difficult, try a different situation now.`
+        : "This browser cannot save progress. You can keep learning and record results in a private log.";
     });
 
   const search = document.getElementById("phrase-search");
@@ -232,8 +232,8 @@
         count += visible;
       });
       document.getElementById("phrase-count").textContent = count
-        ? `${count} câu phù hợp. Chọn 1–3 câu để tự nói, không cần học tất cả.`
-        : "Chưa tìm thấy câu phù hợp. Thử từ ngắn hơn hoặc chọn tất cả tình huống.";
+        ? `${count} matching phrases. Pick 1–3 to say aloud; you do not need to learn them all.`
+        : "No matching phrases. Try a shorter search or choose all situations.";
     };
     search.addEventListener("input", filter);
     groupFilter.addEventListener("change", filter);
@@ -250,9 +250,9 @@
       sample.textContent = "";
       sample.hidden = true;
       box.querySelector("[data-turn-count]").textContent =
-        `Lượt ${turn + 1}/${turns.length}`;
+        `Turn ${turn + 1}/${turns.length}`;
       advance.textContent =
-        turn === turns.length - 1 ? "Luyện lại từ đầu" : "Tôi đã trả lời →";
+        turn === turns.length - 1 ? "Start again" : "I’ve replied →";
     };
     box.hidden = false;
     box.querySelector("[data-turn-hint]").addEventListener("click", () => {
@@ -287,7 +287,7 @@
   document.getElementById("reset-progress")?.addEventListener("click", () => {
     if (
       !window.confirm(
-        "Xóa tự đánh giá và vị trí học đã lưu trên trình duyệt này?",
+        "Clear your saved self-assessments and lesson position in this browser?",
       )
     )
       return;
@@ -295,10 +295,10 @@
       localStorage.removeItem(STATE_KEY);
       localStorage.removeItem(RESUME_KEY);
       document.getElementById("privacy-status").textContent =
-        "Đã xóa tiến độ trên trình duyệt này.";
+        "Progress cleared in this browser.";
     } catch {
       document.getElementById("privacy-status").textContent =
-        "Trình duyệt không cho thay đổi dữ liệu lưu. Bạn có thể xóa dữ liệu trang trong cài đặt trình duyệt.";
+        "This browser cannot change saved data. You can clear this site’s data in your browser settings.";
     }
   });
 })();

@@ -1,54 +1,54 @@
 ---
-title: Bắt đầu từ đây
-lang: vi
+title: Start Here
+lang: en
 ---
 
-# Mỗi ngày, làm một việc nhỏ bằng tiếng Anh
+# A little English you can use today
 
-Bạn không cần đọc hết tài liệu. Chỉ cần một bài, khoảng 20 phút và một chỗ có thể nói thành tiếng.
+You do not need to read the whole library. Choose one lesson, find a place to speak aloud, and give it about 20 minutes.
 
-## Hôm nay học gì?
+## What should I study today?
 
-1. Mở [Hôm nay]({{ '/' | relative_url }}).
-2. Nếu có bài đến lượt ôn, ôn trước. Danh sách này chỉ xuất hiện khi bạn đã lưu tự đánh giá trên trình duyệt.
-3. Chưa có tiến độ? Bắt đầu từ bài 01. Hoặc chọn một [tình huống đang cần]({{ '/lessons/' | relative_url }}).
-4. Bấm bắt đầu và theo 4 bước. Mỗi bước đều nói rõ việc cần làm.
+1. Open [Today]({{ '/' | relative_url }}).
+2. If a review is due, do that first. Reviews appear only after you save a self-assessment in this browser.
+3. No saved progress? Start with lesson 01, or choose [a situation you need]({{ '/lessons/' | relative_url }}).
+4. Start the lesson and follow its four steps. Each step tells you what to do.
 
-## 20 phút học như thế nào?
+## How do I spend the 20 minutes?
 
-| Bước | Bạn làm gì? | Thời gian |
+| Step | Your task | Time |
 |---|---|---|
-| Nhớ lại | Nhìn tình huống, tự nói câu cũ mà chưa xem mẫu. Lần đầu chưa có bài cũ thì thử bằng vốn từ hiện tại. | 4 phút |
-| Học câu mới | Đọc 3–5 cụm câu, hình dung tình huống, nói thử với chi tiết khác. | 4 phút |
-| Luyện nói | Đổi từ trong mẫu, trả lời câu hỏi và đóng vai từng lượt. | 8 phút |
-| Tự kiểm tra | Làm exit task không nhìn bài, rồi mới xem đáp án và tự đánh giá. | 4 phút |
+| Recall | Picture a situation and say an older phrase without looking. On your first lesson, try using the English you already know. | 4 min |
+| Learn | Read 3–5 useful chunks. Picture the situation and try a sentence with different details. | 4 min |
+| Practice | Change the examples, answer questions, and take part in a conversation. | 8 min |
+| Check | Try the exit task without notes. Then check the answers and assess your attempt. | 4 min |
 
-**Chunk** là một cụm từ hoặc mẫu câu có thể nhớ và dùng cùng nhau, như “Could you say that again, please?”
+A **chunk** is a group of words you can remember and use together, such as “Could you say that again, please?”
 
-## Khi nào xem đáp án?
+## When should I check the answers?
 
-Thử trước, kể cả khi câu chưa hoàn hảo. Nếu bí, hình dung tình huống hoặc xin một gợi ý ngắn. Sau lần thử, mở đáp án cuối bài, tìm chỗ cần sửa và làm lại với chi tiết mới. Đọc theo đáp án chưa phải là nhớ được.
+Try first, even if your reply is not perfect. If you get stuck, picture the situation or ask for one short hint. Then check the answer key at the end, notice what to change, and try again with different details. Reading the answer aloud is useful practice, but it does not show that you can recall it.
 
-## Làm sao biết mình học được?
+## How do I know I have learned it?
 
-Bạn tự chọn được câu phù hợp, nói không cần nhìn mẫu và đổi được chi tiết. Ghi đúng mức đang có: cần gợi ý, nói còn ngập ngừng, dùng đúng trong tình huống quen hoặc dùng được trong tình huống mới.
+You can choose a suitable phrase, say it without reading, and change the details. Record what actually happened: you needed hints, hesitated, used it correctly in a familiar situation, or used it naturally in a new situation.
 
-## Bỏ lỡ một ngày thì sao?
+## What if I miss a day?
 
-Quay lại bài cần ôn, không học bù một danh sách dài. Nếu khó nhớ, luyện lại một câu trong tình huống dễ hơn và ôn vào ngày tiếp theo. Chỉ học thêm khi còn đủ tập trung.
+Return to a review. Do not try to catch up by reading a long list. If recall is difficult, practice one phrase in an easier situation and revisit it the next day. Add new material only while you can still focus.
 
-Nếu chỉ có 5 phút: chọn một câu cũ, nói trong hai tình huống khác nhau và kiểm tra lại. Không cần mở bài mới.
+**Only five minutes today?** Choose one older phrase, use it in two situations, and check it. You do not need a new lesson.
 
-[Chi tiết cách luyện]({{ '/docs/daily-routine.html' | relative_url }}) · [Cách ôn và tự đánh giá]({{ '/docs/review-and-mastery.html' | relative_url }})
+[Practice guide]({{ '/docs/daily-routine.html' | relative_url }}) · [Review and self-assessment]({{ '/docs/review-and-mastery.html' | relative_url }})
 
 <details markdown="1">
-<summary>Tài liệu tham khảo và hướng dẫn thêm bài</summary>
+<summary>References and authoring guides</summary>
 
-- [Phương pháp học từ theo ngữ cảnh]({{ '/methods/multi-context-vocabulary.html' | relative_url }})
-- [Nguồn câu tiếng Anh]({{ '/sources/common-phrases-reference.html' | relative_url }})
-- [Nguồn tình huống luyện phản xạ]({{ '/sources/speaking-reflex-scenarios.html' | relative_url }})
-- [Skill viết bài học]({{ '/agent-skill/SKILL.html' | relative_url }})
-- [Quy tắc nguồn và ẩn danh]({{ '/agent-skill/source-policy.html' | relative_url }})
-- [Thêm một bài học mới]({{ '/docs/adding-a-lesson.html' | relative_url }})
+- [Multi-context vocabulary method]({{ '/methods/multi-context-vocabulary.html' | relative_url }})
+- [Common phrase source]({{ '/sources/common-phrases-reference.html' | relative_url }})
+- [Speaking-reflex scenario source]({{ '/sources/speaking-reflex-scenarios.html' | relative_url }})
+- [Lesson-writing skill]({{ '/agent-skill/SKILL.html' | relative_url }})
+- [Source and privacy policy]({{ '/agent-skill/source-policy.html' | relative_url }})
+- [Add a lesson]({{ '/docs/adding-a-lesson.html' | relative_url }})
 
 </details>
