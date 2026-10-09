@@ -185,7 +185,7 @@
   variant: Can you do me a favor?
   note: Explain what you need; do not leave the request vague.
   register: polite
-  lesson_id: null
+  lesson_id: EN-20261009-asking-offering-help
 - id: help-with
   group: help
   text: Can I help you with ...?
@@ -196,7 +196,40 @@
   variant: Do you need a hand with that?
   note: Do you need a hand is conversational.
   register: friendly
-  lesson_id: null
+  lesson_id: EN-20261009-asking-offering-help
+- id: could-you-help-me-with
+  group: help
+  text: Could you help me with ...?
+  meaning: Ask someone to help with a specific task or thing.
+  situation: You need help and want to explain exactly what you need.
+  example: Could you help me with this bag, please?
+  cue: You have two bags and cannot carry both at once.
+  variant: Could you help me carry this bag?
+  note: Use with + a thing or an -ing form. You can also use help me + a base verb.
+  register: polite
+  lesson_id: EN-20261009-asking-offering-help
+- id: yes-please-great
+  group: help
+  text: Yes, please. That would be great.
+  meaning: Accept an offer of help warmly.
+  situation: Someone offers help that you would like to accept.
+  example: Yes, please. That would be great. Could you hold the door?
+  cue: Would you like a hand with those bags?
+  variant: Yes, please. Thanks for offering.
+  note: Yes, please accepts an offer; add a specific task when needed.
+  register: friendly / polite
+  lesson_id: EN-20261009-asking-offering-help
+- id: no-worries
+  group: help
+  text: No worries.
+  meaning: Let someone know that a small problem or refusal is okay.
+  situation: A friend apologizes because they cannot help right now.
+  example: No worries. I'll ask someone else.
+  cue: Sorry, I can't help right now. I need to leave.
+  variant: That's okay. Thanks anyway.
+  note: Friendly and informal. That's okay is a more neutral alternative. Respect the person's answer.
+  register: informal
+  lesson_id: EN-20261009-asking-offering-help
 - id: ill-have
   group: service
   text: I'll have ..., please.
