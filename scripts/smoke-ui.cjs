@@ -78,7 +78,11 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
     await page.locator("#today-link").getAttribute("href"),
     /check-understanding/,
   );
-  assert.ok((await page.locator("#progress-summary").innerText()).includes(`1/${lessons.length}`));
+  assert.ok(
+    (await page.locator("#progress-summary").innerText()).includes(
+      `1/${lessons.length}`,
+    ),
+  );
   // Existing local review state must determine due work, not publication dates.
   await page.evaluate((id) => {
     const data = JSON.parse(localStorage.getItem("daily-english-progress-v1"));
@@ -103,8 +107,8 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   assert.equal(saved[lessons[0].id].mastery, 1);
   await page.goto(`${base}phrases/`);
   await page.locator("#phrase-group-filter").selectOption("planning");
-  assert.ok(await page.locator(".phrase-card:visible").count() >= 4);
-  assert.equal(await page.locator('[data-phrase-group]:visible').count(), 1);
+  assert.ok((await page.locator(".phrase-card:visible").count()) >= 4);
+  assert.equal(await page.locator("[data-phrase-group]:visible").count(), 1);
   await page.locator("#phrase-search").fill("no such phrase 9988");
   assert.equal(await page.locator(".phrase-card:visible").count(), 0);
   assert.match(await page.locator("#phrase-count").innerText(), /Chưa tìm/);
@@ -182,13 +186,64 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   await plainPage.locator("#answer-key > summary").click();
   assert.equal(await plainPage.locator("#answer-key .prose").isVisible(), true);
   await plainPage.goto(`${base}scenarios/check-understanding.html`);
-  await plainPage.locator('.partner-turns > summary').click();
-  assert.ok(await plainPage.locator('.partner-turns li:visible').count() >= 3);
-  assert.equal(await plainPage.locator('[data-roleplay]').isVisible(), false);
+  await plainPage.locator(".partner-turns > summary").click();
+  assert.ok(
+    (await plainPage.locator(".partner-turns li:visible").count()) >= 3,
+  );
+  assert.equal(await plainPage.locator("[data-roleplay]").isVisible(), false);
   await plain.close();
+  // Saving in separate tabs must preserve other lessons and respect a later reset.
+  const tabs = await browser.newContext();
+  const tabA = await tabs.newPage();
+  const tabB = await tabs.newPage();
+  await tabA.goto(new URL(lessons[0].url, base).href + "#step-4");
+  await tabB.goto(new URL(lessons[1].url, base).href + "#step-4");
+  const assess = async (tab, score) => {
+    await tab.locator("#mastery").selectOption(String(score));
+    await tab.locator("#attempt-confirmation").check();
+    await tab.getByRole("button", { name: "Lưu tự đánh giá" }).click();
+  };
+  await assess(tabA, 3);
+  await assess(tabB, 3);
+  const multiTabState = await tabB.evaluate(() =>
+    JSON.parse(localStorage.getItem("daily-english-progress-v1")),
+  );
+  assert.deepEqual(
+    Object.keys(multiTabState).sort(),
+    [lessons[0].id, lessons[1].id].sort(),
+  );
+  await tabB.goto(`${base}docs/review-and-mastery.html`);
+  tabB.once("dialog", (dialog) => dialog.accept());
+  await tabB.getByRole("button", { name: "Xóa tiến độ trên thiết bị" }).click();
+  const resetExportEvent = tabB.waitForEvent("download");
+  await tabB.getByRole("button", { name: "Tải bản sao tiến độ" }).click();
+  const resetExport = await resetExportEvent;
+  const exportStream = await resetExport.createReadStream();
+  const buffers = [];
+  for await (const buffer of exportStream) buffers.push(buffer);
+  assert.deepEqual(JSON.parse(Buffer.concat(buffers).toString()).progress, {});
+  await assess(tabA, 2);
+  const afterReset = await tabA.evaluate(() =>
+    JSON.parse(localStorage.getItem("daily-english-progress-v1")),
+  );
+  assert.deepEqual(Object.keys(afterReset), [lessons[0].id]);
+  await tabs.close();
+  // A tab left open across midnight must record the day of the actual attempt.
+  const overnight = await browser.newContext({ timezoneId: "Asia/Bangkok" });
+  const overnightPage = await overnight.newPage();
+  await overnightPage.clock.install({ time: new Date("2026-10-09T16:58:00Z") });
+  await overnightPage.goto(new URL(lessons[0].url, base).href + "#step-4");
+  await overnightPage.clock.setSystemTime(new Date("2026-10-09T17:05:00Z"));
+  await assess(overnightPage, 2);
+  const overnightState = await overnightPage.evaluate(() =>
+    JSON.parse(localStorage.getItem("daily-english-progress-v1")),
+  );
+  assert.equal(overnightState[lessons[0].id].attemptedOn, "2026-10-10");
+  assert.equal(overnightState[lessons[0].id].nextReview, "2026-10-11");
+  await overnight.close();
   assert.deepEqual(failures, [], "Browser errors and failed local requests");
   console.log(
-    "UI smoke checks passed: recommendations, resume, explicit assessment, adaptive review, phrases, roleplay, mobile, export/reset, blocked storage and no-JS fallback.",
+    "UI smoke checks passed: learning flow, mobile, no-JS/storage fallbacks, multi-tab saves, export after reset and overnight assessment dates.",
   );
   await browser.close();
 })().catch((error) => {

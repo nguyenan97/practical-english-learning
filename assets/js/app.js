@@ -35,20 +35,24 @@
     typeof key === "string" &&
     /^\d{4}-\d{2}-\d{2}$/.test(key) &&
     Number.isFinite(new Date(`${key}T12:00:00`).getTime());
-  const progress = {};
-  const stored = read(STATE_KEY);
-  lessons.forEach((lesson) => {
-    const entry = stored[lesson.id];
-    if (
-      entry &&
-      Number.isInteger(entry.mastery) &&
-      entry.mastery >= 0 &&
-      entry.mastery <= 4 &&
-      validDate(entry.attemptedOn) &&
-      validDate(entry.nextReview)
-    )
-      progress[lesson.id] = entry;
-  });
+  const loadProgress = () => {
+    const result = {};
+    const stored = read(STATE_KEY);
+    lessons.forEach((lesson) => {
+      const entry = stored[lesson.id];
+      if (
+        entry &&
+        Number.isInteger(entry.mastery) &&
+        entry.mastery >= 0 &&
+        entry.mastery <= 4 &&
+        validDate(entry.attemptedOn) &&
+        validDate(entry.nextReview)
+      )
+        result[lesson.id] = entry;
+    });
+    return result;
+  };
+  const progress = loadProgress();
   const today = dateKey();
   const due = lessons
     .filter((lesson) => progress[lesson.id]?.nextReview <= today)
@@ -175,31 +179,34 @@
       event.preventDefault();
       const form = event.currentTarget;
       if (!form.reportValidity()) return;
+      // Another tab may have saved or cleared progress since this page opened.
+      const latest = loadProgress();
+      const attemptedOn = dateKey();
       const mastery = Number(document.getElementById("mastery").value);
-      const old = progress[form.dataset.lessonId];
+      const old = latest[form.dataset.lessonId];
       const successfulOn =
         mastery >= 3
           ? validDate(old?.successfulOn)
             ? old.successfulOn
-            : today
+            : attemptedOn
           : null;
       const nextReview = successfulOn
         ? intervals
             .map((n) => addDays(successfulOn, n))
-            .find((day) => day > today) || addDays(today, 60)
-        : addDays(today, 1);
+            .find((day) => day > attemptedOn) || addDays(attemptedOn, 60)
+        : addDays(attemptedOn, 1);
       const produced = [
         ...form.querySelectorAll('[name="produced"]:checked'),
       ].map((input) => input.value);
-      progress[form.dataset.lessonId] = {
+      latest[form.dataset.lessonId] = {
         mastery,
-        attemptedOn: today,
+        attemptedOn,
         successfulOn,
         nextReview,
         produced,
       };
       const status = document.getElementById("assessment-status");
-      status.textContent = write(STATE_KEY, progress)
+      status.textContent = write(STATE_KEY, latest)
         ? `Đã lưu mức ${mastery}/4. Ôn lại vào ${nextReview.split("-").reverse().join("/")}. Nếu vẫn khó nhớ, luyện lại ngay với một tình huống khác.`
         : "Trình duyệt không cho lưu tiến độ. Bạn vẫn có thể học; hãy ghi kết quả vào learning log riêng.";
     });
@@ -261,7 +268,13 @@
   });
   document.getElementById("export-progress")?.addEventListener("click", () => {
     const blob = new Blob(
-      [JSON.stringify({ version: 1, exportedOn: today, progress }, null, 2)],
+      [
+        JSON.stringify(
+          { version: 1, exportedOn: dateKey(), progress: loadProgress() },
+          null,
+          2,
+        ),
+      ],
       { type: "application/json" },
     );
     const url = URL.createObjectURL(blob);
