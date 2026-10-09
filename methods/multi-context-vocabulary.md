@@ -201,7 +201,7 @@ Each vocabulary lesson should contain:
 9. **Question → Answer** conversational examples
 10. Comparisons with previously learned words when useful
 
-Do not add a detailed study plan or quick-practice section unless requested.
+Use the shared four-step lesson workflow: review, learn, practice, and exit task. Keep explanations short and include active production and an answer key. A communicative-function lesson may use one useful chunk family instead of one high-frequency word. See [the lesson template](../templates/lesson-template.html).
 
 ## Core principle
 

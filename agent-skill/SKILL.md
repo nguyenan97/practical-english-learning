@@ -1,6 +1,8 @@
 ---
 name: daily-english-learning
-description: Generate one new, non-duplicate English lesson per day, grounded first in learning sources and lesson history, then selectively enriched with current authoritative sources. USE FOR: daily English practice, speaking reflex, vocabulary-in-context, work/technical English, or review of previous lessons. DO NOT USE FOR: translation-only requests, unrelated writing tasks, or generic English answers that do not require the daily learning workflow.
+description: >-
+  Generate one new, non-duplicate English lesson per day, grounded first in learning sources and lesson history, then selectively enriched with current authoritative sources. USE FOR: daily English practice, speaking reflex, vocabulary-in-context, work/technical English, or review of previous lessons. DO NOT USE FOR: translation-only requests, unrelated writing tasks, or generic English answers that do not require the daily learning workflow.
+title: Daily English Learning Agent Skill
 ---
 
 # Daily English Learning
@@ -70,7 +72,7 @@ Use only when higher tiers do not answer the need. Cross-check important claims.
 
 ## Learning state and non-duplication
 
-Maintain or reconstruct `english-learning-log.md`.
+Read learner history only when it is actually provided. Keep private file history at `private/english-learning-log.md`, excluded from Git and the public build. Browser self-assessment is separate from curriculum metadata and is never available to the agent automatically. Do not reconstruct performance from page visits or published lessons.
 
 ```yaml
 lesson_id: EN-YYYYMMDD-<slug>
@@ -131,7 +133,7 @@ Choose one anchor concept:
 - a communicative function;
 - a technical explain-back topic.
 
-Prefer 2-5 new chunks per lesson.
+Prefer 3-5 new chunks per published lesson; use stable IDs from `_data/chunks.yml`.
 
 ### 3. Research only when useful
 
@@ -139,19 +141,14 @@ Use current external research only when the lesson depends on current or real-wo
 
 ### 4. Build around retrieval and production
 
-Use this order:
+Use the four-step published lesson workflow:
 
-1. **Today's target**
-2. **Core idea**
-3. **New chunks**
-4. **Multi-context examples**
-5. **Why it works**
-6. **Q -> A dialogue**
-7. **Contrast**
-8. **Real-world mini input** when relevant
-9. **Practice ladder**
-10. **Review retrieval**
-11. **Exit task**
+1. **Review (4 minutes)** — retrieval from situations for chunks actually practiced; allow skipping when history is unknown.
+2. **Learn (4 minutes)** — target, situation, core idea, 3–5 chunks, everyday/work contexts, why they work and a useful contrast.
+3. **Practice (8 minutes)** — substitution, situation recall, Q -> A, naturalness correction, an evolving 6–10-turn model dialogue, partner-only practice, a changed situation, role reversal and personalization.
+4. **Exit task (4 minutes)** — unassisted production in a new situation, delayed recall and observable success criteria.
+
+Put the complete answer key after the exit task. Open-ended answers are samples, not the only valid responses. Explain-back and real-world input can fit these steps when relevant. The timing is a flexible guide; learner production should occupy most of the session.
 
 ## Practice ladder
 
@@ -187,7 +184,7 @@ If retrieval fails badly, shorten/reset the interval. Keep review roughly 20-30%
 5. Do not interrupt every sentence unless an error blocks meaning.
 6. Collect errors and give feedback at the end.
 
-Feedback covers fluency, naturalness, accuracy, vocabulary, and communication.
+Feedback covers fluency, naturalness, accuracy, vocabulary, and communication as supported by the actual interaction. Do not assess pronunciation or listening from text alone. The website's scripted partner turns are not an AI service; use the copyable scenario prompt for adaptive AI practice.
 
 ## Correction policy
 
@@ -222,40 +219,11 @@ Default to 15-25 focused minutes. Do not add a detailed study plan unless reques
 
 ## Output format
 
-```markdown
-# Lesson <N> - <Natural title>
+Use `templates/lesson-template.md` and `templates/scenario-template.md`. Publish a Markdown lesson with validated front matter and exactly three `<!-- step -->` markers followed by one `<!-- answers -->` marker. The layout renders the four steps and keeps answers at the end. Maintain a lesson/scenario link in both directions.
 
-**Today's target:** ...
-**Track:** ...
-**Anchor:** ...
+The home page and lesson index are generated from metadata. Do not maintain a duplicate list. Phrase metadata lives in `_data/chunks.yml`; all lesson IDs, new/review chunk IDs and prerequisites must resolve. A `lesson_id` represents curriculum content, not proof of completion. Dates in lesson front matter are publication dates.
 
-## 1. Core idea
-...
-
-## 2. Useful chunks
-...
-
-## 3. Real contexts
-### Daily life
-...
-### Work / technical
-...
-
-## 4. Why these phrases work
-...
-
-## 5. Q -> A
-...
-
-## 6. Practice
-...
-
-## 7. Review from older lessons
-...
-
-## 8. Exit task
-...
-```
+Refer to `docs/adding-a-lesson.md` for the repository workflow and `docs/review-and-mastery.md` for the learner workflow.
 
 ## Validation
 
@@ -275,6 +243,6 @@ Before sending a lesson, verify:
 
 ## Completion
 
-After a lesson, update learning state with lesson metadata, chunks actually produced correctly, errors worth revisiting, mastery score, and next review dates.
+After an actual learner attempt, record only observed output: chunks produced correctly, hints needed, errors worth revisiting, mastery score and next review date. If the task is only to author a lesson, do not create a completed learner entry. The static site offers explicit self-assessment; it does not grade speaking or infer success from navigation.
 
 Mastery requires successful retrieval and use, not merely reading the lesson.

@@ -1,0 +1,83 @@
+---
+layout: default
+---
+<a class="back-link" href="{{ '/lessons/' | relative_url }}">← Tất cả bài học</a>
+<header class="lesson-header">
+  <p class="eyebrow">BÀI {{ page.order | prepend: '0' }} · {{ page.track_label | upcase }}</p>
+  <h1 lang="en">{{ page.title }}</h1>
+  <p lang="en">{{ page.target }}</p>
+  <div class="lesson-meta">
+    <span class="tag">{{ page.level }}</span><span>{{ page.duration_minutes }} phút</span
+    ><span>{{ page.new_chunk_ids.size }} cụm câu mới</span>
+  </div>
+</header>
+<div class="lesson-guide">
+  <p>
+    <strong>Mỗi lần chỉ làm một bước.</strong> Nói thành tiếng trước khi xem câu mẫu. Chuyển bước không có nghĩa là đã
+    thành thạo.
+  </p>
+  <a href="{{ '/docs/daily-routine.html' | relative_url }}">Cách luyện →</a>
+</div>
+<nav class="step-nav" aria-label="Các bước học">
+  <a href="#step-1" data-step-link="0"><span>01</span> Nhớ lại <small>4 phút</small></a
+  ><a href="#step-2" data-step-link="1"><span>02</span> Học câu mới <small>4 phút</small></a
+  ><a href="#step-3" data-step-link="2"><span>03</span> Luyện nói <small>8 phút</small></a
+  ><a href="#step-4" data-step-link="3"><span>04</span> Tự kiểm tra <small>4 phút</small></a>
+</nav>
+{% assign parts = content | split: '<!-- answers -->' %}
+{% assign steps = parts.first | split: '<!-- step -->' %}
+<div class="lesson-workspace" data-lesson-id="{{ page.lesson_id }}">
+  {% for step in steps %}
+    <section
+      class="lesson-step prose"
+      id="step-{{ forloop.index }}"
+      data-step="{{ forloop.index0 }}"
+      lang="en"
+      tabindex="-1"
+    >
+      {{ step }}
+    </section>
+  {% endfor %}
+  <div class="step-actions" hidden>
+    <button class="button secondary" id="previous-step" type="button">← Bước trước</button
+    ><span id="step-counter" aria-live="polite"></span
+    ><button class="button primary" id="next-step" type="button">Tiếp tục →</button>
+  </div>
+</div>
+<section class="assessment" id="assessment" aria-labelledby="assessment-title">
+  <p class="eyebrow">SAU KHI TỰ LÀM EXIT TASK</p>
+  <h2 id="assessment-title">Hôm nay bạn tự nói được đến đâu?</h2>
+  <p>Chỉ lưu sau khi đã thử trả lời. Đây là tự đánh giá của bạn, không phải điểm do hệ thống chấm.</p>
+  <form id="assessment-form" data-lesson-id="{{ page.lesson_id }}">
+    <label for="mastery">Chọn mức phù hợp</label
+    ><select id="mastery" required>
+      <option value="">Chưa đánh giá</option>
+      <option value="0">0 — Chưa hiểu hoặc chưa dùng được</option>
+      <option value="1">1 — Cần nhiều gợi ý</option>
+      <option value="2">2 — Tự nói nhưng còn ngập ngừng hoặc sai</option>
+      <option value="3">3 — Tự nói đúng trong tình huống quen thuộc</option>
+      <option value="4">4 — Tự nói tự nhiên trong tình huống mới</option>
+    </select>
+    <fieldset>
+      <legend>Cụm câu bạn đã tự dùng đúng (có thể để trống)</legend>
+      {% for id in page.new_chunk_ids -%}
+        {%- assign chunk = site.data.chunks | where: 'id', id | first -%}
+        <label class="check-label"
+          ><input type="checkbox" name="produced" value="{{ id }}"><span lang="en">{{ chunk.text }}</span></label
+        >
+      {%- endfor %}
+    </fieldset>
+    <label class="check-label"
+      ><input id="attempt-confirmation" type="checkbox" required
+      ><span>Tôi đã tự thử trả lời trước khi xem đáp án.</span></label
+    ><button class="button primary" type="submit">Lưu tự đánh giá</button>
+    <p id="assessment-status" role="status" class="small-note">
+      Tiến độ chỉ lưu trên trình duyệt này; không lưu câu trả lời cá nhân.
+    </p>
+  </form>
+  <noscript><p>Dùng mẫu learning log riêng để ghi kết quả khi JavaScript tắt.</p></noscript>
+</section>
+<details class="answer-key" id="answer-key">
+  <summary>Xem đáp án &amp; câu trả lời mẫu <span>Chỉ mở sau khi bạn đã thử</span></summary>
+  <div class="prose" lang="en">{{ parts.last }}</div>
+</details>

@@ -1,9 +1,22 @@
 title: Practical English Learning
 description: Context-first English learning resources and Agent Skill
-remote_theme: pages-themes/minimal@v0.2.0
-plugins:
-  - jekyll-remote-theme
-show_downloads: false
+url: https://nguyenan97.github.io
+baseurl: /practical-english-learning
+markdown: kramdown
+kramdown:
+  input: GFM
+exclude:
+  - README.md
+  - AGENTS.md
+  - Gemfile
+  - Gemfile.lock
+  - requirements-dev.txt
+  - scripts
+  - work
+  - private
+  - english-learning-log.md
+  - node_modules
+  - vendor
 defaults:
   - scope:
       path: ""

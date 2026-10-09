@@ -1,0 +1,275 @@
+- id: get-ready
+  group: daily
+  text: get ready
+  meaning: Prepare yourself.
+  situation: Before leaving or starting an activity.
+  example: I'm getting ready for work.
+  cue: Are you ready to leave?
+  variant: I need to get ready.
+  note: Use get ready for + noun, or get ready to + verb.
+  register: everyday
+  lesson_id: EN-20261007-get-in-context
+- id: get-home
+  group: daily
+  text: get home
+  meaning: Arrive at your home.
+  situation: Talking about your arrival time.
+  example: I got home around six.
+  cue: What time did you get home?
+  variant: I'll get home around seven.
+  note: Say get home, without to.
+  register: everyday
+  lesson_id: EN-20261007-get-in-context
+- id: get-better
+  group: daily
+  text: get better
+  meaning: Improve or become less ill.
+  situation: Describing progress or recovery.
+  example: I'm getting better at speaking.
+  cue: How is your English practice going?
+  variant: I'm getting better, thanks.
+  note: Use at + -ing when naming an activity.
+  register: everyday
+  lesson_id: EN-20261007-get-in-context
+- id: get-it
+  group: clarify
+  text: get it
+  meaning: Understand an idea.
+  situation: An explanation starts to make sense.
+  example: Oh, I get it now.
+  cue: Does that make sense?
+  variant: I don't get it yet.
+  note: It refers to the idea being discussed. Common in conversation.
+  register: conversational
+  lesson_id: EN-20261007-get-in-context
+- id: get-back
+  group: work
+  text: I'll get back to you.
+  meaning: Contact someone later with a response.
+  situation: You need to check before answering.
+  example: I'll get back to you after lunch.
+  cue: Can you confirm the deadline?
+  variant: I'll get back to you by three.
+  note: Include a time when it helps. Keep to before the person.
+  register: work / everyday
+  lesson_id: EN-20261007-get-in-context
+- id: say-again
+  group: repeat
+  text: Could you say that again, please?
+  meaning: Ask someone to repeat their words.
+  situation: You missed part of what someone said.
+  example: Sorry, could you say that again, please?
+  cue: Please send it by fifteen ... [unclear].
+  variant: Could you repeat that, please?
+  note: Could you is a polite request.
+  register: polite
+  lesson_id: EN-20261009-check-understanding
+- id: more-slowly
+  group: repeat
+  text: Could you speak a little more slowly?
+  meaning: Ask someone to reduce their speaking speed.
+  situation: The words are coming too fast.
+  example: Could you speak a little more slowly?
+  cue: Turnleftatthecornerthen ...
+  variant: A little more slowly, please.
+  note: Use slowly to describe how someone speaks.
+  register: polite
+  lesson_id: EN-20261009-check-understanding
+- id: do-you-mean
+  group: clarify
+  text: Do you mean ...?
+  meaning: Check one possible meaning.
+  situation: Two interpretations seem possible.
+  example: Do you mean this Friday?
+  cue: We need it by Friday.
+  variant: Do you mean Friday morning?
+  note: Suggest a possible meaning; let the other person confirm or correct it.
+  register: everyday / work
+  lesson_id: EN-20261009-check-understanding
+- id: just-to-check
+  group: clarify
+  text: Just to check, ...
+  meaning: Confirm a detail before acting.
+  situation: You want to avoid a mistake.
+  example: Just to check, the meeting is at ten, right?
+  cue: The time has changed to ten.
+  variant: Just to check, we need two copies, right?
+  note: Use a normal sentence after this opening.
+  register: everyday / work
+  lesson_id: EN-20261009-check-understanding
+- id: are-you-free
+  group: planning
+  text: Are you free ...?
+  meaning: Ask whether someone is available.
+  situation: Planning a call or meeting.
+  example: Are you free on Saturday?
+  cue: We should catch up soon.
+  variant: Are you free tomorrow afternoon?
+  note: Use on with days, but not before tomorrow.
+  register: everyday / work
+  lesson_id: EN-20261009-arrange-a-time
+- id: how-about
+  group: planning
+  text: How about ...?
+  meaning: Suggest an option.
+  situation: Offering a time or place.
+  example: How about three thirty?
+  cue: What time should we meet?
+  variant: How about meeting after lunch?
+  note: Use a noun or -ing form, not a bare verb.
+  register: conversational
+  lesson_id: EN-20261009-arrange-a-time
+- id: works-for-me
+  group: planning
+  text: That works for me.
+  meaning: Accept a plan that suits you.
+  situation: The suggested time is convenient.
+  example: Three thirty? That works for me.
+  cue: Would three thirty be okay?
+  variant: Saturday works for me.
+  note: Works here means suits my schedule, not a job.
+  register: everyday / work
+  lesson_id: EN-20261009-arrange-a-time
+- id: make-it
+  group: planning
+  text: I can't make it at ...
+  meaning: Say you cannot attend at a particular time.
+  situation: Declining a time and suggesting another.
+  example: I can't make it at three. How about four?
+  cue: Can we meet at three?
+  variant: I can't make it tomorrow morning.
+  note: Follow with another option to keep planning.
+  register: conversational
+  lesson_id: EN-20261009-arrange-a-time
+- id: how-going
+  group: opening
+  text: How's it going?
+  meaning: Ask how someone is doing.
+  situation: A casual conversation with a friend.
+  example: Hey, how's it going?
+  cue: Hi!
+  variant: How are things?
+  note: Friendly and informal. How are you? is more neutral.
+  register: casual
+  lesson_id: null
+- id: nice-talking
+  group: opening
+  text: It was nice talking to you.
+  meaning: End a conversation warmly.
+  situation: You are about to leave.
+  example: It was nice talking to you. See you later!
+  cue: I should head home now.
+  variant: Nice talking to you!
+  note: Use after a conversation, not as the opening greeting.
+  register: friendly
+  lesson_id: null
+- id: let-me-think
+  group: thinking
+  text: Let me think about it.
+  meaning: Ask for time to consider something.
+  situation: You are not ready to decide.
+  example: Let me think about it. Can I tell you tomorrow?
+  cue: Would you like to join us?
+  variant: Let me think for a moment.
+  note: Give a response time if someone is waiting for a decision.
+  register: everyday / work
+  lesson_id: null
+- id: do-me-favor
+  group: help
+  text: Could you do me a favor?
+  meaning: Ask for help before explaining a small request.
+  situation: You need a small action from another person.
+  example: Could you do me a favor and check this sentence?
+  cue: Do you need anything?
+  variant: Can you do me a favor?
+  note: Explain what you need; do not leave the request vague.
+  register: polite
+  lesson_id: null
+- id: help-with
+  group: help
+  text: Can I help you with ...?
+  meaning: Offer help with a task.
+  situation: Someone is carrying or working on something.
+  example: Can I help you with those bags?
+  cue: These bags are heavy.
+  variant: Do you need a hand with that?
+  note: Do you need a hand is conversational.
+  register: friendly
+  lesson_id: null
+- id: ill-have
+  group: service
+  text: I'll have ... , please.
+  meaning: Choose food or a drink when ordering.
+  situation: A server asks for your order.
+  example: I'll have a cup of tea, please.
+  cue: What would you like to drink?
+  variant: I'd like a cup of tea, please.
+  note: Use a or an with singular countable items.
+  register: polite
+  lesson_id: null
+- id: how-much
+  group: service
+  text: How much does this cost?
+  meaning: Ask for a price.
+  situation: Shopping for an item.
+  example: How much does this cost?
+  cue: Would you like this one?
+  variant: How much is this?
+  note: Point to the item if this could be unclear.
+  register: everyday
+  lesson_id: null
+- id: how-get
+  group: service
+  text: How do I get to ...?
+  meaning: Ask for directions.
+  situation: You need to find a place.
+  example: How do I get to the bus station?
+  cue: Can I help you?
+  variant: Could you tell me how to get to the bus station?
+  note: Use get to + place; home is an exception.
+  register: everyday
+  lesson_id: null
+- id: let-me-check
+  group: work
+  text: Let me check.
+  meaning: Say you will verify information.
+  situation: You do not have a confirmed answer yet.
+  example: Let me check. I'll get back to you by two.
+  cue: Is the report ready?
+  variant: Let me check the details.
+  note: Do not imply certainty before checking.
+  register: everyday / work
+  lesson_id: null
+- id: makes-sense
+  group: opinions
+  text: That makes sense.
+  meaning: Say an idea seems reasonable or clear.
+  situation: Responding to an explanation.
+  example: That makes sense. We should test it first.
+  cue: Testing first could help us catch mistakes.
+  variant: That makes sense to me.
+  note: It can express understanding; it is not always full agreement.
+  register: everyday / work
+  lesson_id: null
+- id: what-if
+  group: opinions
+  text: What if we ...?
+  meaning: Suggest an alternative.
+  situation: A plan needs another option.
+  example: What if we meet online instead?
+  cue: We cannot both get to the office.
+  variant: Could we meet online instead?
+  note: In this suggestion pattern, use a normal clause after we.
+  register: everyday / work
+  lesson_id: null
+- id: see-point
+  group: opinions
+  text: I see your point, but ...
+  meaning: Acknowledge an idea before disagreeing.
+  situation: You understand the reason but prefer another approach.
+  example: I see your point, but I'd prefer to check first.
+  cue: We should send it right away.
+  variant: I understand, but ...
+  note: Give a clear, respectful reason after but.
+  register: polite / work
+  lesson_id: null

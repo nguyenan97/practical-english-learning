@@ -1,0 +1,18 @@
+{% assign lessons = site.pages | where_exp: 'item', 'item.lesson_id != nil' | sort: 'order' %}
+<div class="lesson-grid">
+  {% for item in lessons %}
+    <a class="lesson-card" href="{{ item.url | relative_url }}" data-lesson-card="{{ item.lesson_id }}">
+      <div class="card-top">
+        <span class="lesson-number">{{ item.order | prepend: '0' }}</span
+        ><span class="tag">{{ item.track_label }}</span>
+      </div>
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+      <div class="card-bottom">
+        <span>{{ item.duration_minutes }} phút · {{ item.new_chunk_ids.size }} cụm câu</span
+        ><span class="card-arrow" aria-hidden="true">→</span>
+      </div>
+      <span class="lesson-state" data-lesson-state="{{ item.lesson_id }}"></span>
+    </a>
+  {% endfor %}
+</div>

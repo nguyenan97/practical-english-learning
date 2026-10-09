@@ -1,0 +1,116 @@
+---
+layout: default
+---
+{% assign lessons = site.pages | where_exp: 'item', 'item.lesson_id != nil' | sort: 'order' %}
+{% assign first_lesson = lessons.first %}
+<section class="home-hero">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="green-dot"></span> TIẾNG ANH CHO CUỘC SỐNG THẬT</p>
+    <h1>
+      Học một chút.<br>
+      Nói được <span>mỗi ngày.</span>
+    </h1>
+    <p class="hero-description">
+      Không cần học thuộc cả danh sách. Mỗi ngày, luyện vài câu hữu ích và dùng chúng trong một cuộc trò chuyện.
+    </p>
+    <div class="hero-actions">
+      <a class="button primary" id="today-link" href="{{ first_lesson.url | relative_url }}"
+        >Bắt đầu học hôm nay <span aria-hidden="true">→</span></a
+      ><a class="text-link" href="{{ '/docs/start-here.html' | relative_url }}">Mới bắt đầu? Xem cách học →</a>
+    </div>
+    <p class="hero-footnote">20 phút <span>·</span> A2–B1 <span>·</span> Nói trước, xem đáp án sau</p>
+  </div>
+  <aside class="today-card" aria-label="Bài gợi ý">
+    <div class="today-card-top">
+      <span class="eyebrow">MỘT BƯỚC NHỎ HÔM NAY</span><span class="sun-mark" aria-hidden="true">✳</span>
+    </div>
+    <span class="tag soft-green" id="today-kind">Bài đầu tiên</span>
+    <h2 id="today-title">{{ first_lesson.title }}</h2>
+    <p id="today-description">{{ first_lesson.description }}</p>
+    <div class="today-example">
+      <span>SAY IT OUT LOUD</span>
+      <p>
+        “I'm getting ready.<br>
+        Give me two minutes.”
+      </p>
+    </div>
+    <div class="today-card-bottom"><span>Nhìn tình huống. Tự nói một câu.</span><span aria-hidden="true">→</span></div>
+  </aside>
+</section>
+<section class="daily-path" aria-labelledby="daily-path-title">
+  <div class="section-intro">
+    <p class="eyebrow">CỨ THEO 4 BƯỚC NÀY</p>
+    <h2 id="daily-path-title">20 phút, một việc mỗi bước.</h2>
+  </div>
+  <ol class="routine-grid">
+    <li>
+      <span class="step-number">01</span>
+      <div>
+        <h3>Nhớ lại <span>4 phút</span></h3>
+        <p>Tự nói câu đã học, chưa nhìn mẫu.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">02</span>
+      <div>
+        <h3>Học câu mới <span>4 phút</span></h3>
+        <p>3–5 cụm câu, có tình huống rõ ràng.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">03</span>
+      <div>
+        <h3>Luyện nói <span>8 phút</span></h3>
+        <p>Đổi chi tiết. Hỏi và trả lời. Đóng vai.</p>
+      </div>
+    </li>
+    <li>
+      <span class="step-number">04</span>
+      <div>
+        <h3>Tự kiểm tra <span>4 phút</span></h3>
+        <p>Thử không nhìn bài, rồi mới đối chiếu.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+<section class="review-panel" id="review-panel" hidden>
+  <div>
+    <p class="eyebrow">ÔN TRƯỚC KHI HỌC MỚI</p>
+    <h2>Các bài đến lượt ôn</h2>
+    <p>Dựa trên lần tự đánh giá bạn đã lưu trên trình duyệt này.</p>
+  </div>
+  <ul id="review-list"></ul>
+</section>
+<section class="lessons-section">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">BẮT ĐẦU TỪ NHỮNG VIỆC QUEN THUỘC</p>
+      <h2>Mỗi bài, một việc nói được.</h2>
+    </div>
+    <a class="text-link" href="{{ '/lessons/' | relative_url }}">Xem bài học →</a>
+  </div>
+  {% include lesson-cards.html %}
+  <p class="small-note" id="progress-summary">
+    Chưa có tiến độ được lưu. Bạn có thể bắt đầu từ bài 01 hoặc chọn tình huống đang cần.
+  </p>
+</section>
+<section class="bottom-grid">
+  <a class="feature-card" href="{{ '/phrases/' | relative_url }}"
+    ><span class="eyebrow">KHI BẠN CẦN MỘT CÂU</span>
+    <h2>“What should I say?”</h2>
+    <p>Tìm câu theo tình huống: hỏi lại, hẹn gặp, nhờ giúp đỡ và phản hồi công việc.</p>
+    <span class="text-link">Mở sổ câu thường dùng →</span></a
+  ><a class="feature-card green-card" href="{{ '/scenarios/' | relative_url }}"
+    ><span class="eyebrow">BIẾN CÂU MẪU THÀNH PHẢN XẠ</span>
+    <h2>Luyện một cuộc trò chuyện.</h2>
+    <p>Đóng vai, trả lời từng lượt và thử khi tình huống thay đổi.</p>
+    <span class="text-link">Chọn tình huống luyện nói →</span></a
+  >
+</section>
+<noscript>
+  <p class="notice">
+    Bạn vẫn đọc và luyện được tất cả bài học. Bật JavaScript nếu muốn chia bài thành từng bước và lưu tự đánh giá trên
+    trình duyệt.
+  </p>
+</noscript>
+{{ content }}
