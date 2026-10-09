@@ -29,6 +29,19 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
       await new Promise((resolve) => setTimeout(resolve, 500));
     }
   }
+  assert.equal(await page.locator("html").getAttribute("lang"), "en");
+  await page
+    .getByRole("navigation", { name: "Main navigation" })
+    .getByRole("link", { name: "How to learn" })
+    .click();
+  await page.waitForLoadState("load");
+  assert.equal(
+    await page
+      .getByRole("heading", { name: "A little English you can use today" })
+      .count(),
+    1,
+  );
+  await page.goto(base);
   const lessons = await page
     .locator("#lesson-data")
     .evaluate((node) => JSON.parse(node.textContent));
@@ -36,7 +49,7 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   assert.equal(await page.locator("#review-panel").isVisible(), false);
   assert.match(
     await page.locator("#progress-summary").innerText(),
-    /Chưa có tiến độ/,
+    /No progress saved/,
   );
   assert.match(
     await page.locator("#today-link").getAttribute("href"),
@@ -64,7 +77,7 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   await page.locator("#mastery").selectOption("3");
   await page.locator("#attempt-confirmation").check();
   await page.locator('[name="produced"]').first().check();
-  await page.getByRole("button", { name: "Lưu tự đánh giá" }).click();
+  await page.getByRole("button", { name: "Save self-assessment" }).click();
   let saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("daily-english-progress-v1")),
   );
@@ -94,12 +107,12 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   }, lessons[0].id);
   await page.reload();
   assert.equal(await page.locator("#review-panel").isVisible(), true);
-  assert.match(await page.locator("#today-link").innerText(), /Ôn/);
+  assert.match(await page.locator("#today-link").innerText(), /Review/);
   await page.locator("#today-link").click();
   await page.waitForLoadState("load");
   await page.locator("#mastery").selectOption("1");
   await page.locator("#attempt-confirmation").check();
-  await page.getByRole("button", { name: "Lưu tự đánh giá" }).click();
+  await page.getByRole("button", { name: "Save self-assessment" }).click();
   saved = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("daily-english-progress-v1")),
   );
@@ -111,13 +124,16 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   assert.equal(await page.locator("[data-phrase-group]:visible").count(), 1);
   await page.locator("#phrase-search").fill("no such phrase 9988");
   assert.equal(await page.locator(".phrase-card:visible").count(), 0);
-  assert.match(await page.locator("#phrase-count").innerText(), /Chưa tìm/);
+  assert.match(
+    await page.locator("#phrase-count").innerText(),
+    /No matching phrases/,
+  );
   await page.locator("#phrase-search").fill("");
   await page.goto(`${base}scenarios/check-understanding.html`);
   assert.equal(await page.locator("[data-roleplay]").isVisible(), true);
   assert.equal(await page.locator(".roleplay-sample").isVisible(), false);
   const firstTurn = await page.locator(".roleplay-turn").innerText();
-  await page.getByRole("button", { name: "Một gợi ý" }).click();
+  await page.getByRole("button", { name: "One hint" }).click();
   assert.equal(await page.locator(".roleplay-sample").isVisible(), true);
   await page.locator("[data-turn-next]").click();
   assert.notEqual(await page.locator(".roleplay-turn").innerText(), firstTurn);
@@ -135,6 +151,7 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   ];
   for (const route of routes) {
     await page.goto(new URL(route, base).href);
+    assert.equal(await page.locator("html").getAttribute("lang"), "en");
     const width = await page.evaluate(() => ({
       viewport: innerWidth,
       content: document.documentElement.scrollWidth,
@@ -146,13 +163,13 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   }
   await page.goto(`${base}docs/review-and-mastery.html`);
   const downloadEvent = page.waitForEvent("download");
-  await page.getByRole("button", { name: "Tải bản sao tiến độ" }).click();
+  await page.getByRole("button", { name: "Download progress" }).click();
   assert.equal(
     (await downloadEvent).suggestedFilename(),
     "daily-english-progress.json",
   );
   page.once("dialog", (dialog) => dialog.accept());
-  await page.getByRole("button", { name: "Xóa tiến độ trên thiết bị" }).click();
+  await page.getByRole("button", { name: "Clear saved progress" }).click();
   assert.equal(
     await page.evaluate(() =>
       localStorage.getItem("daily-english-progress-v1"),
@@ -170,10 +187,12 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   await blockedPage.goto(new URL(lessons[1].url, base).href + "#step-4");
   await blockedPage.locator("#mastery").selectOption("2");
   await blockedPage.locator("#attempt-confirmation").check();
-  await blockedPage.getByRole("button", { name: "Lưu tự đánh giá" }).click();
+  await blockedPage
+    .getByRole("button", { name: "Save self-assessment" })
+    .click();
   assert.match(
     await blockedPage.locator("#assessment-status").innerText(),
-    /không cho lưu/,
+    /cannot save progress/,
   );
   await blocked.close();
   const plain = await browser.newContext({
@@ -201,7 +220,7 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   const assess = async (tab, score) => {
     await tab.locator("#mastery").selectOption(String(score));
     await tab.locator("#attempt-confirmation").check();
-    await tab.getByRole("button", { name: "Lưu tự đánh giá" }).click();
+    await tab.getByRole("button", { name: "Save self-assessment" }).click();
   };
   await assess(tabA, 3);
   await assess(tabB, 3);
@@ -214,9 +233,9 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   );
   await tabB.goto(`${base}docs/review-and-mastery.html`);
   tabB.once("dialog", (dialog) => dialog.accept());
-  await tabB.getByRole("button", { name: "Xóa tiến độ trên thiết bị" }).click();
+  await tabB.getByRole("button", { name: "Clear saved progress" }).click();
   const resetExportEvent = tabB.waitForEvent("download");
-  await tabB.getByRole("button", { name: "Tải bản sao tiến độ" }).click();
+  await tabB.getByRole("button", { name: "Download progress" }).click();
   const resetExport = await resetExportEvent;
   const exportStream = await resetExport.createReadStream();
   const buffers = [];

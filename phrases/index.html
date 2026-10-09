@@ -1,17 +1,20 @@
 ---
 layout: default
-title: Câu tiếng Anh thường dùng
-lang: vi
+title: Useful English Phrases
+lang: en
 ---
-<p class="eyebrow">MỘT TÌNH HUỐNG → MỘT CÂU HỮU ÍCH</p>
-<h1>Khi cần nói, bắt đầu từ đây.</h1>
-<p>Chọn tình huống đang cần. Đọc câu hỏi, tự nói một câu rồi mới xem mẫu. Mỗi lần chỉ luyện 1–3 câu.</p>
+<p class="eyebrow">ONE SITUATION → ONE USEFUL PHRASE</p>
+<h1>Find the words you need.</h1>
+<p>Choose a situation. Read the cue, try a reply, then check the example. Practice just 1–3 phrases at a time.</p>
 <div class="phrase-controls" id="phrase-controls" hidden>
   <label
-    >Tìm câu hoặc tình huống<input id="phrase-search" type="search" placeholder="Ví dụ: Friday, help, meeting…"></label
+    >Search phrases or situations<input
+      id="phrase-search"
+      type="search"
+      placeholder="Try: Friday, help, meeting…"></label
   ><label
-    >Tình huống<select id="phrase-group-filter">
-      <option value="">Tất cả tình huống</option>
+    >Situation<select id="phrase-group-filter">
+      <option value="">All situations</option>
       {% for group in site.data.phrase_groups %}
         <option value="{{ group.id }}">{{ group.title }}</option>
       {% endfor %}

@@ -1,13 +1,13 @@
 ---
 layout: lesson
 title: Find a Time That Works
-lang: vi
+lang: en
 lesson_id: EN-20261009-arrange-a-time
 date: '2026-10-09'
 order: 3
 level: A2–B1
 track: social
-track_label: Hẹn gặp & trò chuyện
+track_label: Social & planning
 lesson_key: social.planning.arrange-a-time
 anchor: suggest and agree on a time
 duration_minutes: 20
@@ -24,7 +24,7 @@ topic_tags:
 - planning
 - availability
 - alternatives
-description: Rủ gặp, đề xuất giờ khác và chốt một lịch hẹn rõ ràng.
+description: Suggest a time, offer another option, and agree on a clear plan.
 target: Arrange a meeting by asking about availability, suggesting a time, and offering
   another option.
 scenario_id: arrange-a-time
@@ -58,7 +58,7 @@ A useful sequence is: ask about availability → suggest → adjust → confirm.
 
 ### Why it works and contrast
 
-**How about ...?** offers a choice. **That works for me** accepts the plan. **I can't make it** says you cannot attend, and another option keeps the conversation moving.
+**How about ...?** offers a choice. Use a noun (“How about three?”), an -ing form (“How about meeting at three?”), or a full clause (“How about we meet at three?”). **That works for me** accepts the plan. **I can't make it** says you cannot attend, and another option keeps the conversation moving.
 
 “I don't want to meet” means you do not want the meeting. “I can't make it at three” says the time does not work; you may still want to meet.
 

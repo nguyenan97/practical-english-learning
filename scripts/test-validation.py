@@ -74,5 +74,22 @@ class ContentValidationTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn('Jekyll must exclude private', result.stderr)
 
+    def test_non_english_page_language(self):
+        self.edit(self.lessons[0], lambda meta: meta.update(lang='vi'))
+        result = self.run_check()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('page lang must be en', result.stderr)
+
+    def test_vietnamese_copy_is_rejected(self):
+        self.edit(self.lessons[0], lambda meta: meta.update(description='Hôm nay học bài mới'))
+        result = self.run_check()
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('published copy must be English', result.stderr)
+
+    def test_english_loanword_is_allowed(self):
+        self.edit(self.lessons[0], lambda meta: meta.update(description='Meet at the café after lunch.'))
+        result = self.run_check()
+        self.assertEqual(result.returncode, 0, result.stderr)
+
 if __name__ == '__main__':
     unittest.main()

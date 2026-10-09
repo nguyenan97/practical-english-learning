@@ -1,43 +1,43 @@
 ---
-title: Ôn lại và lưu tự đánh giá
-lang: vi
+title: Review and Progress
+lang: en
 ---
 
-# Nhớ được mới là mục tiêu
+# Aim to recall it and use it
 
-## Tự đánh giá sau khi thực sự thử
+## Assess your attempt, not your reading
 
-| Mức | Dấu hiệu quan sát được |
+| Level | What you observed |
 |---|---|
-| 0 | Chưa hiểu hoặc chưa dùng được. |
-| 1 | Nhận ra hoặc nói được khi có nhiều gợi ý. |
-| 2 | Tự nói nhưng ngập ngừng hoặc còn lỗi. |
-| 3 | Tự dùng đúng trong tình huống quen thuộc. |
-| 4 | Tự dùng tự nhiên trong nhiều tình huống mới. |
+| 0 | You could not understand or use it yet. |
+| 1 | You needed strong hints. |
+| 2 | You produced it with hesitation or errors. |
+| 3 | You used it correctly in a familiar situation. |
+| 4 | You used it naturally in several new situations. |
 
-Sau exit task, chọn mức phù hợp và đánh dấu cụm câu bạn thực sự tự dùng đúng. Không cần đánh dấu mọi câu. Website không tự suy ra mastery từ việc mở bài, chuyển bước hoặc xem đáp án.
+After the exit task, choose your level and check only the chunks you used correctly on your own. You can leave the chunk list empty. Opening a lesson, moving between steps, and reading answers do not establish mastery.
 
-## Ôn vào lúc nào?
+## When should I review?
 
-Sau lần đầu tự dùng thành công (mức 3–4), lịch mặc định là ngày **1, 3, 7, 14, 30 và 60**, tính từ lần thành công đó. Mỗi lần ôn thành công chọn mốc tiếp theo còn ở tương lai. Sau mốc 60, tiếp tục ôn sau 60 ngày khi bạn lưu một lượt ôn thành công mới.
+After your first successful attempt at level 3–4, the default review dates are **1, 3, 7, 14, 30, and 60 days** after that attempt. A successful review selects the next date still in the future. After the 60-day point, another successful review schedules the next one 60 days later.
 
-Đây là lịch khởi đầu, không phải lịch tốt nhất cho mọi người. Nếu cần gợi ý hoặc còn nhiều lỗi (mức 0–2), lịch được đặt lại cho ngày tiếp theo. Bạn luôn có thể ôn sớm hơn bằng cách mở lại bài.
+This is a starting schedule, not the best schedule for everyone. If you need hints or make several errors (level 0–2), review is reset to the next day. You can always open a lesson and review sooner.
 
-**Khi ôn:** nhìn tình huống, nói trước, rồi kiểm tra. Ưu tiên câu đã khó nhớ. Khi review nhắc đến bài bạn chưa học, bỏ qua hoặc trả lời bằng vốn từ hiện có; không coi đó là nội dung đã thành thạo.
+**During review:** picture the situation, speak first, then check. Focus on phrases that were difficult. If a review prompt refers to a lesson you have not practiced, skip it or use the English you already know.
 
-## Tiến độ được lưu ở đâu?
+## Where does my progress go?
 
-Tự đánh giá và vị trí bước học lưu trên trình duyệt này. Không gửi lên máy chủ và không lưu câu trả lời, bản ghi âm, tên hoặc thông tin tài khoản. Ngày ôn dùng ngày tại thiết bị của bạn.
+Self-assessments and your last lesson step stay in this browser. They are not sent to a server. The site does not save your personal answers, audio, name, or account details. Review dates use your device's local date, shown as YYYY-MM-DD.
 
-Dùng thiết bị khác, chế độ riêng tư hoặc xóa dữ liệu trình duyệt có thể không còn tiến độ. Nếu trình duyệt không cho lưu, bài học vẫn đọc được và bạn sẽ thấy thông báo sau khi bấm lưu.
+A different device, a private browsing session, or clearing browser data may not retain this progress. If storage is blocked, you can still read and practice; the Save button will explain that it could not save.
 
-Bạn có thể tải bản sao JSON để giữ riêng. Hiện chưa có chức năng nhập lại bản sao vào website; đây là bản ghi để bạn đọc hoặc lưu trữ.
+You can download a JSON copy to keep privately. There is currently no import feature; the copy is for your own records.
 
-<div class="privacy-actions"><button class="button secondary" id="export-progress" type="button">Tải bản sao tiến độ</button><button class="button secondary" id="reset-progress" type="button">Xóa tiến độ trên thiết bị</button></div>
+<div class="privacy-actions"><button class="button secondary" id="export-progress" type="button">Download progress</button><button class="button secondary" id="reset-progress" type="button">Clear saved progress</button></div>
 <p id="privacy-status" role="status"></p>
 
-## Nếu muốn ghi log bằng file
+## Prefer a file-based learning log?
 
-Sao chép [learning log template]({{ '/templates/learning-log-template.html' | relative_url }}) vào `private/english-learning-log.md`. Thư mục `private/` bị loại khỏi Git và bản build. Đừng đưa log thật lên trang công khai.
+Copy the [learning log template]({{ '/templates/learning-log-template.html' | relative_url }}) to `private/english-learning-log.md`. The `private/` directory is excluded from Git and the site build. Keep real learner logs out of public pages.
 
-Kho bài học công khai là nội dung học, không phải bằng chứng bạn đã học xong.
+The public lesson library is curriculum content, not proof that you have completed it.

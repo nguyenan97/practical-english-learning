@@ -3,7 +3,7 @@
 Read `agent-skill/SKILL.md`, the source policy and `docs/adding-a-lesson.md` before changing learning content.
 
 - Keep the site as static Jekyll + Markdown + plain CSS/JS. No backend is needed.
-- Navigation and learning instructions may use Vietnamese. Lesson content, phrase examples and dialogues use natural English.
+- All published UI copy, instructions, metadata labels, examples, dialogues and documentation use clear, natural English. Set page language to en; keep stable IDs and existing progress keys unchanged.
 - Published lessons have exactly four steps separated by three `<!-- step -->` markers and one `<!-- answers -->` marker. Use the lesson template.
 - `_data/chunks.yml` is the phrase metadata source. Lesson lists come from page metadata, not hand-maintained duplicates.
 - Preserve existing examples and answers during migration. Keep new learning separate from review.

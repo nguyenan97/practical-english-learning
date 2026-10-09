@@ -13,43 +13,43 @@
     <script src="{{ '/assets/js/app.js' | relative_url }}" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="{{ '/' | relative_url }}" aria-label="Daily English — Trang chủ"
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="Daily English — Home"
         ><span class="brand-icon" aria-hidden="true">d<span>e</span></span
         >Daily English<span class="brand-dot">.</span></a
       >
-      <nav aria-label="Điều hướng chính">
+      <nav aria-label="Main navigation">
         <a
           href="{{ '/' | relative_url }}"
           {% if page.layout == 'home' %}
             aria-current="page"
           {% endif %}
-          >Hôm nay</a
+          >Today</a
         >
         <a
           href="{{ '/lessons/' | relative_url }}"
           {% if page.url contains '/lessons/' %}
             aria-current="page"
           {% endif %}
-          >Bài học</a
+          >Lessons</a
         >
         <a
           href="{{ '/phrases/' | relative_url }}"
           {% if page.url contains '/phrases/' %}
             aria-current="page"
           {% endif %}
-          >Câu thường dùng</a
+          >Useful phrases</a
         >
         <a
           href="{{ '/docs/start-here.html' | relative_url }}"
           {% if page.url contains '/docs/' %}
             aria-current="page"
           {% endif %}
-          >Cách học</a
+          >How to learn</a
         >
       </nav>
-      <span class="header-note">Một chút mỗi ngày.</span>
+      <span class="header-note">A little practice, every day.</span>
     </header>
     <main
       id="main"
@@ -62,8 +62,8 @@
       {%- endif %}
     </main>
     <footer class="site-footer">
-      <span>Daily English · Học ít. Nói nhiều. Nhớ lâu hơn.</span
-      ><a href="{{ '/docs/review-and-mastery.html' | relative_url }}">Cách ôn &amp; lưu tiến độ</a>
+      <span>Daily English · Learn a little. Speak often. Review regularly.</span
+      ><a href="{{ '/docs/review-and-mastery.html' | relative_url }}">Review &amp; progress</a>
     </footer>
     {% include lesson-data.html %}
   </body>

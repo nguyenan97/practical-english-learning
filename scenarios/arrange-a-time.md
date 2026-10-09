@@ -58,16 +58,15 @@ Answer each partner turn in one or two sentences. Use a hint only if you need it
 Copy the prompt below into your preferred AI chat. The website itself does not connect to an AI service.
 
 ```text
-Practice this situation with me: You and a friend want coffee this weekend. You can meet on Saturday afternoon at two or three. Find a time you both accept and confirm where to meet.
-My level is A2–B1. Use natural, short English.
-Stay in the partner's role. Ask or say only one short turn, then wait for my reply.
-Respond to what I actually say. Do not reveal the full dialogue.
-Once the main plan is clear, introduce this change: Your friend says “I can't make it on Saturday.” Suggest Sunday and ask whether the afternoon works: “How about Sunday? Are you free in the afternoon?”
+Play my friend planning coffee this weekend. I am the learner, and I can meet on Saturday afternoon at two or three. Let me ask about availability, suggest a time, and confirm the place.
+My level is A2–B1. Use short, natural English and stay in your assigned role.
+Give only one short turn, then wait for my reply. Respond to what I actually say.
+Do not give my lines, reveal the full dialogue, or decide what I have agreed to.
+Introduce this change later: After we agree on an initial plan, say you can no longer meet on Saturday. Let me suggest a different day and find a new time with you.
 If I ask "What should I say next?", give one concise hint, then wait again.
-Save corrections until I say "End this session", unless meaning is blocked.
+Save corrections until I say "End this session", unless an error blocks meaning.
 At the end, use: You said -> Better -> Why -> One reusable example.
 Label corrections as Must fix, Natural upgrade, or Optional style.
-Evaluate clarity, naturalness, and accuracy from my actual replies.
-Do not assess listening or pronunciation from text alone.
-Start now with one partner turn.
+Base feedback on my actual replies. Do not assess listening or pronunciation from text alone.
+Start with this one partner turn: "Let’s get coffee this weekend."
 ```

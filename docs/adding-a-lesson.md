@@ -1,41 +1,43 @@
 ---
-title: Thêm bài học mới
-lang: vi
+title: Add a Lesson
+lang: en
 ---
 
-# Thêm bài mới mà không sửa nhiều danh sách
+# Add a lesson without updating several lists
 
-## Nguồn dữ liệu chính
+## Sources of truth
 
-- `lessons/*.md`: metadata và nội dung bài hoàn chỉnh.
-- `_data/chunks.yml`: ID, nghĩa, mẫu câu và tình huống của từng chunk.
-- `_data/phrase_groups.yml`: nhóm tình huống để tra câu.
-- `scenarios/*.md`: vai, mục tiêu, các lượt đối thoại và nhánh thay đổi.
-- `templates/`: mẫu để thêm nội dung.
-- `sources/`: nguồn học đã làm sạch; không phải câu nào cũng đã được khuyến nghị về cách dùng.
-- `methods/`: nguyên tắc học; `agent-skill/`: hướng dẫn cho agent.
+- `lessons/*.md`: published lesson metadata and content.
+- `_data/chunks.yml`: stable chunk IDs, meanings, examples, and situations.
+- `_data/phrase_groups.yml`: situation groups in the phrase library.
+- `scenarios/*.md`: roles, goals, partner turns, and changed situations.
+- `templates/`: reusable authoring templates.
+- `sources/`: sanitized learning sources; candidate wording is not automatically recommended usage.
+- `methods/`: learning principles; `agent-skill/`: instructions for the agent.
 
-Trang chủ, danh sách bài và scenario lấy dữ liệu từ front matter khi Jekyll build. Thêm bài không cần sửa danh sách điều hướng thủ công.
+The home page, lesson list, and conversation list are generated from front matter during the Jekyll build. A new lesson does not need several manually maintained navigation entries.
 
-## Quy trình
+## Authoring workflow
 
-1. Đọc các bài đã có và learning history riêng nếu người học cung cấp. Chọn một mục tiêu giao tiếp khác. Không có history thì không khẳng định người học chưa từng học mục tiêu này.
-2. Chọn 3–5 chunks mới. Thêm ID ổn định vào `_data/chunks.yml`; không tạo ID khác cho cùng chunk chỉ để tránh kiểm tra trùng.
-3. Sao chép [lesson template]({{ '/templates/lesson-template.html' | relative_url }}) thành `lessons/YYYY-MM-DD-topic.md`. Điền metadata thật, `order` duy nhất và các ID tham chiếu.
-4. Viết đúng 4 bước, dùng ba marker `<!-- step -->` và một marker `<!-- answers -->`. Giữ nguyên marker; layout dùng chúng để chia nội dung.
-5. Thêm scenario từ [scenario template]({{ '/templates/scenario-template.html' | relative_url }}), gồm 6–10 lượt mẫu, lượt chỉ dành cho đối tác, một nhánh thay đổi và đổi vai.
-6. Viết đáp án đầy đủ. Câu hỏi mở có nhiều đáp án đúng; ghi rõ câu mẫu và tiêu chí đánh giá.
-7. Chạy kiểm tra và build; mở trang chủ, bài mới, phrase bank và scenario ở màn hình rộng và nhỏ.
-8. Review tính tự nhiên, độ khó, mục tiêu không trùng và dữ liệu đã ẩn danh. Kiểm tra ID không thay thế review sư phạm.
-9. Commit trên branch riêng, push và tạo PR. Không đưa log người học vào PR.
+1. Read existing lessons and private learning history if the learner provides it. Choose a different communicative goal. Without history, do not claim the learner has never studied it.
+2. Choose 3–5 new chunks. Add stable IDs to `_data/chunks.yml`. Do not create a second ID for the same chunk to bypass duplicate checks.
+3. Copy the [lesson template]({{ '/templates/lesson-template.html' | relative_url }}) to `lessons/YYYY-MM-DD-topic.md`. Fill in real metadata, a unique `order`, and valid references.
+4. Write four steps using three `<!-- step -->` markers and one `<!-- answers -->` marker. Keep these comments unchanged; the layout uses them to divide the lesson.
+5. Add a scenario from the [scenario template]({{ '/templates/scenario-template.html' | relative_url }}). Include 6–10 model turns, partner-only turns, one changed situation, and role reversal.
+6. Answer every task. Label open-ended responses as samples and give observable success criteria.
+7. Run validation and build the site. Check the home page, new lesson, phrase library, and scenario on wide and narrow screens.
+8. Review naturalness, level, semantic novelty, and privacy. ID checks cannot replace editorial review.
+9. Commit on a feature branch, push, and open a pull request. Keep actual learner logs out of the PR.
+
+Use clear English throughout the interface, instructions, examples, and documentation. Keep language changes separate from stable IDs and storage keys so existing progress still resolves.
 
 ## Metadata
 
-`lesson_id`, `lesson_key`, `order` phải duy nhất. `date` là ngày xuất bản bài, không phải ngày người học hoàn thành. `new_chunk_ids` và `review_chunk_ids` tách nội dung mới khỏi ôn. Chỉ thêm `prerequisite_lesson_ids` nếu bài thực sự cần kiến thức đó; không dùng để buộc học theo thứ tự khi không cần.
+`lesson_id`, `lesson_key`, and `order` must be unique. `date` is the publication date, not the learner's completion date. `new_chunk_ids` and `review_chunk_ids` separate new learning from review. Add `prerequisite_lesson_ids` only when the lesson actually depends on that knowledge.
 
-`scenario_id` trỏ tới scenario của bài. Scenario dùng `lesson_id_ref` để liên kết ngược. Chunk dùng `lesson_id` để trỏ tới bài giới thiệu chunk đó.
+`scenario_id` points to the lesson's scenario. The scenario uses `lesson_id_ref` to link back. A chunk's `lesson_id` identifies the lesson that introduces it.
 
-## Kiểm tra tại máy
+## Local checks
 
 ```sh
 python3 -m pip install -r requirements-dev.txt
@@ -47,4 +49,4 @@ python3 scripts/validate-content.py --site _site
 bundle exec jekyll serve
 ```
 
-Chạy kiểm tra frontend bằng Playwright theo hướng dẫn trong README. CI cũng kiểm tra nội dung và build trên pull request, tách khỏi deploy chỉ chạy khi cập nhật `main`.
+See the README for Playwright browser checks. CI validates and builds pull requests; the deployment workflow publishes changes only when they reach `main`.

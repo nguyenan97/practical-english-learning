@@ -1,13 +1,13 @@
 ---
 layout: lesson
 title: 'GET: Ready, Home, Better, and Back to You'
-lang: vi
+lang: en
 lesson_id: EN-20261007-get-in-context
 date: '2026-10-07'
 order: 1
 level: A2–B1
 track: mixed
-track_label: Đời sống & công việc
+track_label: Daily life & work
 lesson_key: mixed.get.everyday-changes
 anchor: GET in context
 duration_minutes: 20
@@ -24,7 +24,7 @@ topic_tags:
 - arrival
 - improvement
 - response
-description: Chuẩn bị ra ngoài, kể lúc về nhà và hẹn phản hồi.
+description: Get ready, talk about arriving home, and promise a later reply.
 target: Use five GET chunks in everyday and work situations without translating a
   whole sentence first.
 scenario_id: get-ready

@@ -33,6 +33,19 @@ Treat these phrases as candidate learning material. Some source wording may be d
 
 Teach phrases through context, Q → A dialogue, retrieval prompts, and real situations rather than memorizing isolated translation pairs.
 
+For recommended practice phrases, use the [curated phrase library](../phrases/).
+The original candidates below remain available as reference material.
+
+### Natural wording to prefer in conversation
+
+| Original candidate | Suggested conversational form | Type and reason |
+|---|---|---|
+| Sorry, I didn't hear clearly. | Sorry, I didn't catch that. Could you say it again? | Natural upgrade: describes missing someone's words and gives a clear next action. |
+| At what time? | What time? | Optional style: both are valid; What time? is a common short question in everyday conversation. |
+| At what time did it happen? | What time did it happen? | Optional style: the shorter form usually fits an everyday conversation. |
+
+These are context-based recommendations, not claims that every alternative is grammatically wrong.
+
 ## High-utility content
 
 ### Common expressions

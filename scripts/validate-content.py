@@ -12,6 +12,12 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 errors: list[str] = []
+# Focused regression guard for Vietnamese leftovers, not a general language detector.
+# English words such as café remain valid.
+VIETNAMESE_COPY = re.compile(
+    r'[ĐđĂăƠơƯưạảấầẩẫậắằẳẵặẹẻẽếềểễệỉịọỏốồổỗộớờởỡợụủứừửữựỳỵỷỹ]'
+    r'|\b(?:Hôm nay|Bài học|tiếng Anh|Chưa|Tiếp tục|Tự kiểm tra)\b', re.I
+)
 
 def require(condition, message):
     if not condition: errors.append(message)
@@ -34,6 +40,20 @@ def unique(items, field, label):
     if valid: require(len(values) == len(set(values)), f'{label}: duplicate {field}')
 
 def curriculum():
+    public_dirs = ['_layouts','_includes','_data','assets','lessons','phrases','scenarios',
+                   'docs','templates','sources','methods','agent-skill']
+    public_files = [ROOT / 'index.md', ROOT / 'README.md']
+    for directory in public_dirs:
+        public_files.extend(path for path in (ROOT / directory).rglob('*')
+                            if path.suffix in {'.md','.html','.yml','.js'})
+    for path in public_files:
+        if not path.exists(): continue
+        require(not VIETNAMESE_COPY.search(path.read_text()),
+                f'{path.relative_to(ROOT)}: published copy must be English')
+        if path.suffix in {'.md','.html'} and path.read_text().startswith('---\n'):
+            metadata, _ = load_page(path)
+            require(metadata.get('lang', 'en') == 'en',
+                    f'{path.relative_to(ROOT)}: published page lang must be en')
     chunks = yaml.safe_load((ROOT / '_data/chunks.yml').read_text())
     groups = yaml.safe_load((ROOT / '_data/phrase_groups.yml').read_text())
     unique(chunks, 'id', 'chunks'); unique(groups, 'id', 'groups')
@@ -137,6 +157,8 @@ def built_site(site):
     parsed = {}
     for path in site.rglob('*.html'):
         parser = PageParser(); parser.feed(path.read_text()); parsed[path] = parser
+        require(not VIETNAMESE_COPY.search(path.read_text()),
+                f'{path.relative_to(site)}: rendered copy must be English')
     for path, parser in parsed.items():
         for link in parser.links:
             url = urlsplit(link)

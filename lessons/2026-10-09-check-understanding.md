@@ -1,13 +1,13 @@
 ---
 layout: lesson
 title: Ask Again and Check Understanding
-lang: vi
+lang: en
 lesson_id: EN-20261009-check-understanding
 date: '2026-10-09'
 order: 2
 level: A2–B1
 track: work-communication
-track_label: Giao tiếp công việc
+track_label: Work communication
 lesson_key: work.communication.check-understanding
 anchor: repair and confirm a conversation
 duration_minutes: 20
@@ -24,7 +24,7 @@ topic_tags:
 - clarification
 - listening
 - confirmation
-description: Hỏi lại khi nghe chưa rõ và kiểm tra chi tiết trước khi làm.
+description: Ask someone to repeat and confirm the details before you act.
 target: Ask for repetition, slow a conversation down, and confirm one important detail.
 scenario_id: check-understanding
 ---

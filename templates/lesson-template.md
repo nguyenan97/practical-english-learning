@@ -9,14 +9,14 @@ Copy the following to a new lesson file. Replace every placeholder. The template
 ```yaml
 ---
 layout: lesson
-lang: vi
+lang: en
 title: <Natural English title>
 lesson_id: EN-YYYYMMDD-slug
 date: YYYY-MM-DD
 order: <unique integer>
 level: A2–B1
 track: daily-life
-track_label: Đời sống
+track_label: Daily life
 lesson_key: daily.function.specific-goal
 anchor: <one communicative function or chunk family>
 duration_minutes: 20
@@ -24,7 +24,7 @@ new_chunk_ids: [<3–5 existing chunk IDs>]
 review_chunk_ids: []
 prerequisite_lesson_ids: []
 topic_tags: [<relevant tags>]
-description: <short Vietnamese description for the lesson card>
+description: <short English description for the lesson card>
 target: <observable English outcome>
 scenario_id: <existing scenario ID>
 ---

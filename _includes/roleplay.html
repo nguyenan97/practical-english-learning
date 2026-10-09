@@ -1,12 +1,15 @@
-<div class="roleplay-box" data-roleplay hidden lang="vi">
-  <h3>Trả lời từng lượt</h3>
-  <p>Nói thành tiếng, rồi bấm tiếp. Đây là luyện theo kịch bản, không phải AI đang nghe hoặc chấm câu trả lời.</p>
+<div class="roleplay-box" data-roleplay hidden lang="en">
+  <h3>Reply one turn at a time</h3>
+  <p>
+    Say your reply aloud, then continue. This is a scripted practice partner; it does not listen to or assess your
+    reply.
+  </p>
   <p data-turn-count class="small-note"></p>
   <p class="roleplay-turn" tabindex="-1" lang="en" aria-live="polite"></p>
   <p class="roleplay-sample" lang="en" hidden></p>
   <div class="roleplay-controls">
-    <button class="button secondary" data-turn-hint type="button">Một gợi ý</button
-    ><button class="button primary" data-turn-next type="button">Tôi đã trả lời →</button>
+    <button class="button secondary" data-turn-hint type="button">One hint</button
+    ><button class="button primary" data-turn-next type="button">I’ve replied →</button>
   </div>
   <script type="application/json">
     {{ page.turns | jsonify }}

@@ -18,7 +18,7 @@ Produce one high-value English lesson per day that builds active English for thi
 1. Teach through situations, chunks, collocations, questions, answers, and repeated retrieval.
 2. Prefer high-frequency, high-utility English over rare vocabulary.
 3. Use short, natural English that a real person would say.
-4. During lessons, use English only unless another language is explicitly requested.
+4. Use clear English throughout published UI copy, learner instructions, lessons and documentation. Set page language to en. Another language may be used when the user explicitly requests it.
 5. Keep new learning separate from review.
 6. Aim for roughly 70% learner practice and 30% explanation/input.
 7. Go deep on a small number of useful chunks.
