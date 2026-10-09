@@ -1,0 +1,22 @@
+<div class="roleplay-box" data-roleplay hidden lang="vi">
+  <h3>Trả lời từng lượt</h3>
+  <p>Nói thành tiếng, rồi bấm tiếp. Đây là luyện theo kịch bản, không phải AI đang nghe hoặc chấm câu trả lời.</p>
+  <p data-turn-count class="small-note"></p>
+  <p class="roleplay-turn" tabindex="-1" lang="en" aria-live="polite"></p>
+  <p class="roleplay-sample" lang="en" hidden></p>
+  <div class="roleplay-controls">
+    <button class="button secondary" data-turn-hint type="button">Một gợi ý</button
+    ><button class="button primary" data-turn-next type="button">Tôi đã trả lời →</button>
+  </div>
+  <script type="application/json">
+    {{ page.turns | jsonify }}
+  </script>
+</div>
+<details class="partner-turns">
+  <summary>Partner-only turns — practice without the model</summary>
+  <ol>
+    {% for turn in page.turns %}
+      <li>{{ turn.prompt }}</li>
+    {% endfor %}
+  </ol>
+</details>

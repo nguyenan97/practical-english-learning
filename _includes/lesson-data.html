@@ -1,0 +1,6 @@
+{% assign lessons = site.pages | where_exp: 'item', 'item.lesson_id != nil' | sort: 'order' %}
+<script id="lesson-data" type="application/json">
+  [
+  {% for item in lessons %}{"id":{{ item.lesson_id | jsonify }},"title":{{ item.title | jsonify }},"url":{{ item.url | relative_url | jsonify }},"order":{{ item.order | jsonify }},"prerequisites":{{ item.prerequisite_lesson_ids | jsonify }},"chunks":{{ item.new_chunk_ids | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}
+  ]
+</script>

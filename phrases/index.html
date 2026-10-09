@@ -1,0 +1,50 @@
+---
+layout: default
+title: Câu tiếng Anh thường dùng
+lang: vi
+---
+<p class="eyebrow">MỘT TÌNH HUỐNG → MỘT CÂU HỮU ÍCH</p>
+<h1>Khi cần nói, bắt đầu từ đây.</h1>
+<p>Chọn tình huống đang cần. Đọc câu hỏi, tự nói một câu rồi mới xem mẫu. Mỗi lần chỉ luyện 1–3 câu.</p>
+<div class="phrase-controls" id="phrase-controls" hidden>
+  <label
+    >Tìm câu hoặc tình huống<input id="phrase-search" type="search" placeholder="Ví dụ: Friday, help, meeting…"></label
+  ><label
+    >Tình huống<select id="phrase-group-filter">
+      <option value="">Tất cả tình huống</option>
+      {% for group in site.data.phrase_groups %}
+        <option value="{{ group.id }}">{{ group.title }}</option>
+      {% endfor %}
+    </select></label
+  >
+</div>
+<p class="phrase-count" id="phrase-count" role="status"></p>
+{% for group in site.data.phrase_groups %}
+  <section class="phrase-group" data-phrase-group="{{ group.id }}">
+    <h2>{{ group.title }}</h2>
+    <div class="phrase-grid">
+      {% assign chunks = site.data.chunks | where: 'group', group.id -%}
+      {%- for chunk in chunks %}
+        <article class="phrase-card" id="{{ chunk.id }}" lang="en">
+          <span class="tag">{{ chunk.register }}</span>
+          <h3>{{ chunk.text }}</h3>
+          <p>{{ chunk.meaning }}</p>
+          <p><strong>Situation:</strong> {{ chunk.situation }}</p>
+          <blockquote>{{ chunk.cue }}</blockquote>
+          <details>
+            <summary>Try your reply, then see an example</summary>
+            <p>{{ chunk.example }}</p>
+            <p><strong>Another way:</strong> {{ chunk.variant }}</p>
+            <p>{{ chunk.note }}</p>
+          </details>
+          {% if chunk.lesson_id -%}
+            {%- assign lesson = site.pages | where: 'lesson_id', chunk.lesson_id | first %}
+            <p><a href="{{ lesson.url | relative_url }}">Practice in a lesson →</a></p>
+          {% else %}
+            <p class="small-note">Use this as extra practice; it is not assigned as new material in a lesson yet.</p>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endfor %}

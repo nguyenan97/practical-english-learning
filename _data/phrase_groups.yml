@@ -1,0 +1,20 @@
+- id: daily
+  title: Chuẩn bị & kể chuyện mỗi ngày
+- id: opening
+  title: Bắt đầu & kết thúc trò chuyện
+- id: repeat
+  title: Nghe chưa rõ
+- id: clarify
+  title: Kiểm tra mình hiểu đúng
+- id: thinking
+  title: Cần thời gian suy nghĩ
+- id: help
+  title: Nhờ giúp đỡ
+- id: planning
+  title: Hẹn thời gian
+- id: service
+  title: Mua sắm, gọi món & hỏi đường
+- id: work
+  title: Phản hồi công việc
+- id: opinions
+  title: Đồng ý & đề xuất

@@ -1,0 +1,13 @@
+<div class="chunk-list">
+  {% for id in page.new_chunk_ids -%}
+    {%- assign chunk = site.data.chunks | where: 'id', id | first %}
+    <article class="chunk-card">
+      <span class="chunk-index">{{ forloop.index | prepend: '0' }}</span>
+      <div>
+        <h3>{{ chunk.text }}</h3>
+        <p>{{ chunk.meaning }}</p>
+        <blockquote>{{ chunk.example }}</blockquote>
+      </div>
+    </article>
+  {% endfor %}
+</div>

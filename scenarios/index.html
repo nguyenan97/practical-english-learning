@@ -1,0 +1,20 @@
+---
+layout: default
+title: Luyện hội thoại
+lang: vi
+---
+<p class="eyebrow">NÓI THÀNH TIẾNG, MỖI LẦN MỘT LƯỢT</p>
+<h1>Tập nói như một cuộc trò chuyện.</h1>
+<p>Chọn tình huống, trả lời từng lượt, rồi thử khi kế hoạch thay đổi. Mẫu hội thoại nằm ở cuối; chưa cần mở ngay.</p>
+{% assign scenarios = site.pages
+  | where_exp: 'item', 'item.scenario_id != nil and item.lesson_id_ref != nil'
+  | sort: 'title'
+%}
+{% for scenario in scenarios %}
+  <article class="scenario-card">
+    <span class="tag">{{ scenario.level }}</span>
+    <h2>{{ scenario.title }}</h2>
+    <p>Từng lượt hỏi → bạn tự trả lời → một thay đổi bất ngờ → đổi vai.</p>
+    <a class="button primary" href="{{ scenario.url | relative_url }}">Luyện hội thoại →</a>
+  </article>
+{% endfor %}
