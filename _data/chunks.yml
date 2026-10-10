@@ -307,3 +307,47 @@
   note: Give a clear, respectful reason after but.
   register: polite / work
   lesson_id: null
+- id: could-i
+  group: permission
+  text: Could I ...?
+  meaning: Ask permission to do something yourself.
+  situation: You want to close a window in a shared room.
+  example: Could I close the window, please?
+  cue: You feel cold in a shared room. Ask before closing the window yourself.
+  variant: Could I use your charger, please?
+  note: Use a base verb after Could I. Wait for permission before acting.
+  register: polite
+  lesson_id: EN-20261010-ask-permission
+- id: is-it-okay-if-i
+  group: permission
+  text: Is it okay if I ...?
+  meaning: Check whether your planned action is acceptable.
+  situation: You want to use something in a shared space.
+  example: Is it okay if I use this chair?
+  cue: You want to use a spare chair. Check before taking it.
+  variant: Is it okay if I sit here?
+  note: Use a complete clause after if, such as I use this chair.
+  register: everyday / polite
+  lesson_id: EN-20261010-ask-permission
+- id: sure-go-ahead
+  group: permission
+  text: Sure, go ahead.
+  meaning: Give someone permission to do what they asked.
+  situation: A friend asks to borrow your available pen.
+  example: Sure, go ahead. The pen is on the table.
+  cue: Could I borrow your spare pen?
+  variant: Of course. Go ahead.
+  note: This gives permission; use it only when you agree to the action.
+  register: friendly
+  lesson_id: EN-20261010-ask-permission
+- id: sorry-using-it
+  group: permission
+  text: Sorry, I'm using it right now.
+  meaning: Refuse a request because you are using the item.
+  situation: Someone asks for the charger connected to your phone.
+  example: Sorry, I'm using it right now. You can use my spare cable.
+  cue: Could I use your charger? It is charging your phone.
+  variant: Sorry, I need it right now.
+  note: It means the item requested. Give a true reason; do not invent one.
+  register: polite / everyday
+  lesson_id: EN-20261010-ask-permission
