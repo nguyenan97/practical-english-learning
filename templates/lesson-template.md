@@ -41,7 +41,7 @@ Give situation prompts for known chunks. If the learner has not practiced them, 
 
 ## Learn — one clear goal
 
-Describe the roles, known facts and communication goal.
+Describe the roles, known facts and communication goal. Keep explanations short; the layout supplies the step action and time guide.
 
 {% raw %}{% include chunk-cards.html %}{% endraw %}
 
@@ -52,6 +52,8 @@ Explain briefly, give everyday and work contexts, and contrast a common confusio
 ## Practice — from support to independence
 
 Add substitution, situation recall, Q → A with follow-up, correction, a scenario link, a changed situation, role reversal and personalization. Say answers before writing.
+
+Use {% raw %}{% include scenario-link.html label="the conversation scenario" %}{% endraw %}. Fit the main route into eight minutes; make extra drills optional for another visit.
 
 <!-- step -->
 
@@ -64,4 +66,6 @@ Use a new situation. Add observable success criteria and delayed recall after an
 ## Answer key and sample responses
 
 Provide answers for every task, including review, corrections, role reversal and the exit task. Label open responses as samples. Use correction categories: Must fix, Natural upgrade, Optional style.
+
+Check that sample turns use the facts from the prompt. Give conditional replies when the partner's answer can vary.
 ````

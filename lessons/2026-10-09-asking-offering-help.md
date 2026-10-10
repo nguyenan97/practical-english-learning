@@ -31,7 +31,7 @@ target: Ask for help with a clear task, offer help, accept an offer, and respect
 scenario_id: asking-offering-help
 ---
 
-## Review — recall before reading (4 minutes)
+## Review — recall before reading
 
 Use these prompts only if you have practiced the planning or clarification chunks:
 
@@ -44,13 +44,13 @@ If these chunks are unfamiliar, skip this review or try with the English you alr
 
 <!-- step -->
 
-## Learn — make the help clear (4 minutes)
+## Learn — make the help clear
 
 **Situation:** You are taking bags into your home. A friend is nearby. You need the door held open and one small bag carried inside. Later, you notice your friend carrying some books.
 
 **Goal:** Ask for one clear action, respond to the answer, and offer help in return.
 
-A **chunk** is a group of words you can remember and use together. A **favor** is a small helpful action someone does for you.
+A **favor** is a small helpful action someone does for you.
 
 {% include chunk-cards.html %}
 
@@ -78,9 +78,9 @@ Read the five chunk examples once. Look away and explain which phrases ask, offe
 
 <!-- step -->
 
-## Practice — ask, listen to the answer, respond (8 minutes)
+## Practice — ask, respond, and help
 
-Say your replies before writing. Spend about one minute on each short task and three minutes on the conversation. The times are a guide; focus on saying useful English.
+Say your replies before writing. Spend about five minutes on A–D and three minutes on the conversation in E. Try F on another visit if you need more time.
 
 ### A. Change one detail
 
@@ -117,7 +117,7 @@ Improve these replies. Some are grammar errors; others are valid but need cleare
 
 ### E. Try the whole conversation
 
-Open [the bags-and-books scenario]({{ '/scenarios/asking-offering-help.html' | relative_url }}). Use the partner-only turns before opening the model dialogue. Ask for help, accept an offer, respect a limit, and offer help in return.
+Open {% include scenario-link.html label="the bags-and-books scenario" %}. Use the partner-only turns before opening the model dialogue. Ask for help, accept an offer, respect a limit, and offer help in return.
 
 **Changed situation:** Your friend cannot carry anything, but they can hold the door briefly. Accept that smaller offer and say you will carry the bag yourself.
 
@@ -129,7 +129,7 @@ Choose a safe, real or imaginary task at home or work. Say one specific request 
 
 <!-- step -->
 
-## Exit task — use it in a new situation (4 minutes)
+## Exit task — use it in a new situation
 
 You are setting up a room for a small event. You need help putting cups on a table. Your partner is sorting paper signs.
 
@@ -215,7 +215,7 @@ All open-ended responses below are samples, not the only correct answers. Differ
 
 ### Practice E — conversation, change, and role reversal
 
-The [scenario]({{ '/scenarios/asking-offering-help.html' | relative_url }}) contains a ten-turn model and sample responses for the change and role reversal.
+The {% include scenario-link.html label="scenario" %} contains a ten-turn model and sample responses for the change and role reversal.
 
 **Changed situation — sample:** “Yes, please. That would be great. Could you hold the door? I'll carry the bag myself.”
 

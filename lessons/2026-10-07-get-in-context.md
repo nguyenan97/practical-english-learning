@@ -25,8 +25,7 @@ topic_tags:
 - improvement
 - response
 description: Get ready, talk about arriving home, and promise a later reply.
-target: Use five GET chunks in everyday and work situations without translating a
-  whole sentence first.
+target: Say you are getting ready, describe your day, and promise a later reply.
 scenario_id: get-ready
 ---
 
@@ -48,11 +47,11 @@ On a repeat visit, recall the five GET chunks without notes. Sample answers are 
 
 **Situation:** A friend is waiting outside, and later a colleague needs an update. You want to say what is happening and when you can respond.
 
-GET changes meaning with its context. A **chunk** is a group of words you remember and use together.
+GET changes meaning with its context. Learn each useful phrase as a unit.
 
 {% include chunk-cards.html %}
 
-Read each example once. Cover it and say a sentence with different details. Find the longer original explanations and examples in the answer section after your attempt.
+Read each example once. Look away and say a sentence with different details. Extra examples are kept at the end for another session.
 
 <!-- step -->
 
@@ -60,7 +59,9 @@ Read each example once. Cover it and say a sentence with different details. Find
 
 Try each task before reading its answer key. Say your answers aloud before writing them.
 
-### A. Say it aloud — 2 minutes
+Spend about five minutes on A–D and three minutes on a conversation. Choose E for short replies or F for a full conversation with a changed situation. Try the other conversation on another visit.
+
+### A. Say it aloud
 
 Read each line twice. Stress the bold words.
 
@@ -72,7 +73,7 @@ Read each line twice. Stress the bold words.
 
 Look away and repeat the meaning in your own sentence.
 
-### B. Change one detail — 2 minutes
+### B. Change one detail
 
 Keep the frame and replace the missing part.
 
@@ -87,9 +88,9 @@ For number 3, use an activity:
 
 Make two versions of each sentence.
 
-### C. Retrieve from the situation — 3 minutes
+### C. Retrieve from the situation
 
-Cover Sections 2–5. Respond aloud.
+Look away from the examples. Respond aloud.
 
 1. A friend is waiting. You are still preparing to leave.
 2. Someone asks when you arrived home yesterday.
@@ -97,7 +98,7 @@ Cover Sections 2–5. Respond aloud.
 4. Your speaking is improving through practice.
 5. A colleague wants an answer. You need to check first. Promise a response before four.
 
-### D. Make it natural — 2 minutes
+### D. Make it natural
 
 Correct these sentences aloud.
 
@@ -106,7 +107,7 @@ Correct these sentences aloud.
 3. “I'm getting better at speak.”
 4. “I'll get back you tomorrow.”
 
-### E. Use it in a conversation — 3 minutes
+### E. Use it in a short conversation
 
 You are preparing for a meeting. A colleague asks:
 
@@ -122,14 +123,16 @@ Answer.
 
 You need to check first. Answer and give a specific time for your next response.
 
-Finally, explain in two simple sentences what **“get back to someone”** means. Do not repeat the definition from the table.
+**Change:** Your colleague asks, “Can you reply before ten instead?” You can finish checking by nine fifty. Respond to the new time.
+
+Finally, explain in two simple sentences what **“get back to someone”** means. Use your own words.
 
 
 ### F. Try a whole conversation
 
-Your colleague is preparing for a meeting. You still need a minute, and you need to check whether the report is ready. Practice the colleague-only turns in [the meeting scenario]({{ '/scenarios/get-ready.html' | relative_url }}). Say your replies before revealing the model dialogue.
+Your colleague is preparing for a meeting. You still need a minute, and you need to check whether the report is ready. Practice the colleague-only turns in {% include scenario-link.html label="the meeting scenario" %}. Say your replies before revealing the model dialogue.
 
-**Changed situation:** You do not understand which report they mean. Ask one question before promising a response.
+**Changed situation:** Your colleague says, “Actually, I mean a different report.” Ask which one before promising a response.
 
 **Switch roles:** You are now the colleague. Ask about readiness, understanding, and when you can expect a reply.
 
@@ -169,7 +172,10 @@ Describe yesterday for one minute, then retrieve all five chunks again without l
 
 For open-ended tasks, these are examples, not the only correct answers. Change times and details to fit your situation. Reading an answer does not demonstrate mastery; try producing it independently first.
 
-### Section 2 — Your own sentences
+<details markdown="1">
+<summary>Extra examples — optional practice for another visit</summary>
+
+### Your own sentences
 
 1. “I'm getting ready for a meeting.”
 2. “I usually get home around seven.”
@@ -177,7 +183,7 @@ For open-ended tasks, these are examples, not the only correct answers. Change t
 4. “I get it now. We need to send the file today.”
 5. “I'll get back to you tomorrow morning.”
 
-### Section 3 — Daily-life and work responses
+### Daily-life and work responses
 
 **Daily life:**
 
@@ -187,19 +193,21 @@ For open-ended tasks, these are examples, not the only correct answers. Change t
 
 > “Let me check the schedule. I'll get back to you before lunch.”
 
-### Section 4 — Contrasts
+### Contrasts
 
 1. “I'm ready. Let's go.”
 2. “I'm going home now.”
 3. “I'll check the price and get back to you in ten minutes.”
 
-### Section 5 — Alternative Q → A responses
+### Alternative Q → A responses
 
 1. “Almost. I'm getting ready. Give me one minute.”
 2. “I got home at half past six.”
 3. “Yes. I'm getting better at answering questions.”
 4. “Yes, I get it now. We need to save the file first.”
 5. “I'll check and get back to you before three.”
+
+</details>
 
 ### Practice A — New sentences with the same meanings
 
@@ -246,11 +254,14 @@ These are **must-fix** grammar corrections.
 **Colleague:** Can you confirm whether the report is ready?  
 **You:** Let me check. I'll get back to you by ten thirty.
 
+**Colleague:** Can you reply before ten instead?  
+**You:** Yes. I'll get back to you by nine fifty.
+
 **Explain-back:**
 
 > “You need more time before you can answer someone. You contact them again when you have the information.”
 
-### Section 7 — Delayed recall
+### Delayed recall
 
 **Sample description:**
 
@@ -258,7 +269,7 @@ These are **must-fix** grammar corrections.
 
 **Five chunks:** get ready; get home; get better; get it; get back to someone.
 
-### Section 8 — Exit task
+### Exit task
 
 **Sample spoken responses:**
 
@@ -282,16 +293,16 @@ These are **must-fix** grammar corrections.
 
 ### Practice F — sample responses
 
-See the model dialogue in [the meeting scenario]({{ '/scenarios/get-ready.html' | relative_url }}).
+See the model dialogue in {% include scenario-link.html label="the meeting scenario" %}.
 
-**Changed situation:** “Do you mean the report for today's meeting? I'll check and get back to you by ten.”
+**Changed situation — sample:** “Do you mean the report for next week's meeting?” After your colleague confirms: “I'll check and get back to you by ten.”
 
 **Switch roles:** “Are you ready?” → “Do you understand what we need to discuss?” → “When can you get back to me?”
 
 <details markdown="1">
 <summary>More examples and the original lesson explanations</summary>
 
-## 1. Core idea
+## Core idea
 
 Your friend is waiting outside. You still need your shoes.
 
@@ -311,7 +322,7 @@ Later, a colleague asks a question you cannot answer yet.
 
 A **chunk** is a group of words you can remember and use together.
 
-## 2. Useful chunks
+## Useful chunks
 
 | Chunk | Meaning in this situation | Natural example |
 |---|---|---|
@@ -323,7 +334,7 @@ A **chunk** is a group of words you can remember and use together.
 
 Read each example aloud. Then cover the example column and make your own sentence. Sample responses are in the answer key at the end.
 
-## 3. Real contexts
+## Real contexts
 
 ### Daily life
 
@@ -377,7 +388,7 @@ Here, **got** is the past form of **get**.
 
 **Your turn:** Choose one daily-life situation and one work situation. Cover the responses and answer aloud in your own words.
 
-## 4. Why these phrases work
+## Why these phrases work
 
 The words after **get** help you understand the meaning.
 
@@ -412,7 +423,7 @@ These connections are memory aids, not rules for every use of GET.
 2. You are leaving the office and heading home.
 3. You need to check a price before answering a customer.
 
-## 5. Q → A
+## Q → A
 
 Read both roles aloud once. Then cover the answers.
 
@@ -434,7 +445,7 @@ Read both roles aloud once. Then cover the answers.
 Now answer the same questions again using different details. Keep each response to one or two sentences.
 
 
-## 7. Review from older lessons
+## Review from older lessons
 
 No completed lesson history was available when this lesson was prepared, so there are no verified older chunks to review here.
 

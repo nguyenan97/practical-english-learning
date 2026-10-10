@@ -1,0 +1,2 @@
+{%- assign linked_scenario = site.pages | where: 'scenario_id', page.scenario_id | where_exp: 'item', 'item.lesson_id_ref != nil' | first -%}
+<a href="{{ linked_scenario.url | relative_url }}">{{ include.label | default: 'Practice the conversation' }}</a>

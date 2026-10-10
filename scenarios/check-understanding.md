@@ -9,7 +9,7 @@ turns:
   hint: Could you say ...?
 - prompt: Send it by five on Friday.
   hint: Do you mean this ...?
-- prompt: Yes, this Friday. Please use the shared folder, not email.
+- prompt: Yes, this Friday. Please use the shared folder, not email. [spoken quickly]
   hint: Could you speak a little ...?
 - prompt: Of course. Put it in the shared folder by five this Friday.
   hint: Just to check, ... right?
@@ -21,8 +21,7 @@ turns:
 
 You are on a call with a colleague. Part of the deadline was unclear. You need to confirm the day, time, and delivery method before acting. The missing sound is simulated in writing; it is not a listening test.
 
-{% assign lesson = site.pages | where: 'lesson_id', page.lesson_id_ref | first %}
-[Open the lesson]({{ lesson.url | relative_url }}).
+{% include scenario-lesson-link.html %}
 
 ## Your turn
 
@@ -30,9 +29,16 @@ Answer each partner turn in one or two sentences. Use a hint only if you need it
 
 {% include roleplay.html %}
 
-## Change the situation and switch roles
+## Change the situation and switch roles {#change-situation}
 
-**Change:** Your colleague corrects the day: “Thursday, not Friday.” Confirm the corrected deadline: “Just to check, five on Thursday, right?”
+**Change:** Your colleague corrects the day: “Thursday, not Friday.” Confirm the corrected deadline before acting.
+
+<details markdown="1">
+<summary>One sample reply — open after trying</summary>
+
+“Just to check, five on Thursday, right?”
+
+</details>
 
 **Switch roles:** Give a deadline and delivery method. Repeat when asked. Correct one mistaken detail politely, then wait for confirmation.
 
@@ -45,7 +51,7 @@ Answer each partner turn in one or two sentences. Use a hint only if you need it
 **Colleague:** Send it by five on Friday.  
 **You:** Do you mean this Friday?
 
-**Colleague:** Yes, this Friday. Please use the shared folder, not email.  
+**Colleague:** Yes, this Friday. Please use the shared folder, not email. [spoken quickly]  
 **You:** Could you speak a little more slowly?
 
 **Colleague:** Of course. Put it in the shared folder by five this Friday.  

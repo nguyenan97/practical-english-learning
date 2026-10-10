@@ -10,8 +10,8 @@ lang: en
 | Level | What you observed |
 |---|---|
 | 0 | You could not understand or use it yet. |
-| 1 | You needed strong hints. |
-| 2 | You produced it with hesitation or errors. |
+| 1 | You needed several hints. |
+| 2 | You used it with pauses or mistakes. |
 | 3 | You used it correctly in a familiar situation. |
 | 4 | You used it naturally in several new situations. |
 
@@ -24,6 +24,8 @@ After your first successful attempt at level 3–4, the default review dates are
 This is a starting schedule, not the best schedule for everyone. If you need hints or make several errors (level 0–2), review is reset to the next day. You can always open a lesson and review sooner.
 
 **During review:** picture the situation, speak first, then check. Focus on phrases that were difficult. If a review prompt refers to a lesson you have not practiced, skip it or use the English you already know.
+
+Today opens a suggested review at the exit task. Try it without notes. If you need help, return to Learn or Practice, then try a different detail. When all saved reviews are in the future, Today suggests the next lesson without a saved assessment. If there is none, it offers a lesson to revisit; it does not declare that you have mastered the library.
 
 ## Where does my progress go?
 

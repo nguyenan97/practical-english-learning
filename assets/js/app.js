@@ -52,68 +52,88 @@
     });
     return result;
   };
-  const progress = loadProgress();
-  const today = dateKey();
-  const due = lessons
-    .filter((lesson) => progress[lesson.id]?.nextReview <= today)
-    .sort((a, b) =>
-      progress[a.id].nextReview.localeCompare(progress[b.id].nextReview),
+  const renderProgress = () => {
+    const progress = loadProgress();
+    const today = dateKey();
+    const due = lessons
+      .filter((lesson) => progress[lesson.id]?.nextReview <= today)
+      .sort((a, b) =>
+        progress[a.id].nextReview.localeCompare(progress[b.id].nextReview),
+      );
+    const attempted = lessons.filter((lesson) => progress[lesson.id]);
+    const unseen = lessons.find(
+      (lesson) =>
+        !progress[lesson.id] &&
+        lesson.prerequisites.every((id) => progress[id]?.mastery >= 3),
     );
-  const attempted = lessons.filter((lesson) => progress[lesson.id]);
-  const unseen = lessons.find(
-    (lesson) =>
-      !progress[lesson.id] &&
-      lesson.prerequisites.every((id) => progress[id]?.mastery >= 3),
-  );
-  const weak = lessons.find((lesson) => progress[lesson.id]?.mastery < 3);
-  const suggested = due[0] || weak || unseen || lessons[0];
-  const homeLink = document.getElementById("today-link");
-  if (homeLink && suggested) {
-    homeLink.href = suggested.url;
-    document.getElementById("today-title").textContent = suggested.title;
-    const isReview = Boolean(progress[suggested.id]);
-    homeLink.textContent = `${isReview ? "Review today" : "Start today’s lesson"} →`;
-    document.getElementById("today-kind").textContent = due.length
-      ? "Time to review"
-      : weak
-        ? "Practice again"
-        : unseen
-          ? "Your next lesson"
-          : "Choose a lesson to revisit";
-    if (!attempted.length)
-      document.getElementById("today-kind").textContent = "Your first lesson";
-    if (suggested.id !== lessons[0]?.id || isReview) {
-      document.getElementById("today-description").textContent = isReview
-        ? "Try without looking at the model, then assess your response again."
-        : "A new situation. Follow the steps and speak aloud.";
-      const example = document.querySelector(".today-example");
-      example.querySelector("span").textContent = isReview
-        ? "RECALL BEFORE READING"
-        : "ONE SMALL STEP";
-      example.querySelector("p").textContent = isReview
-        ? "“What can I say in this situation?”"
-        : "Read the situation. Try one sentence.";
-    }
-    if (attempted.length)
-      document.getElementById("progress-summary").textContent =
-        `You’ve assessed ${attempted.length}/${lessons.length} lessons in this browser. Reading a lesson is not the same as recalling it.`;
-    if (due.length) {
-      document.getElementById("review-panel").hidden = false;
+    const weak = lessons.find((lesson) => progress[lesson.id]?.mastery < 3);
+    const suggested = due[0] || weak || unseen || attempted[0] || lessons[0];
+    const homeLink = document.getElementById("today-link");
+    if (homeLink && suggested) {
+      const isReview = Boolean(progress[suggested.id]);
+      homeLink.href = suggested.url + (isReview ? "#step-4" : "");
+      document.getElementById("quick-link").href =
+        suggested.url + "#quick-practice";
+      document.getElementById("today-title").textContent = suggested.title;
+      document.getElementById("today-description").textContent =
+        suggested.description;
+      document.getElementById("today-goal").textContent = suggested.target;
+      document.getElementById("today-cue").textContent = suggested.cue;
+      homeLink.textContent = `${isReview ? "Review today" : "Start today’s lesson"} →`;
+      document.getElementById("today-kind").textContent = due.length
+        ? "Time to review"
+        : weak
+          ? "Practice again"
+          : unseen
+            ? "Your next lesson"
+            : "Choose a lesson to revisit";
+      if (!attempted.length)
+        document.getElementById("today-kind").textContent = "Your first lesson";
+      const entry = progress[suggested.id];
+      document.getElementById("today-reason").textContent = due.length
+        ? `Your saved review date is ${entry.nextReview}. Try this lesson’s exit task without notes before learning more.`
+        : weak
+          ? `You last saved level ${entry.mastery}/4 for this lesson. Try its exit task again; use one hint if you need it.`
+          : !attempted.length
+            ? "No self-assessments saved here yet. Start with lesson 01, or choose a situation you need."
+            : unseen
+              ? "Your saved reviews are not due yet. This is the next lesson with no self-assessment saved here."
+              : "Nothing is due yet. Revisit this lesson, or choose another situation from the lesson list.";
+      document.getElementById("progress-summary").textContent = attempted.length
+        ? `You’ve assessed ${attempted.length}/${lessons.length} lessons in this browser. Reading a lesson is not the same as recalling it.`
+        : "No progress saved yet. Start with lesson 01, or choose a situation you need today.";
+      const lastAttempt = attempted
+        .map((lesson) => progress[lesson.id].attemptedOn)
+        .sort()
+        .at(-1);
+      document.getElementById("returning-note").hidden =
+        !lastAttempt || lastAttempt >= addDays(today, -1);
+      document.getElementById("review-panel").hidden = !due.length;
       const list = document.getElementById("review-list");
+      list.replaceChildren();
       due.forEach((lesson) => {
         const li = document.createElement("li");
         const link = document.createElement("a");
-        link.href = lesson.url;
-        link.textContent = lesson.title;
+        link.href = lesson.url + "#step-4";
+        link.textContent = `${lesson.title} · due ${progress[lesson.id].nextReview}`;
         li.append(link);
         list.append(li);
       });
     }
-  }
-  document.querySelectorAll("[data-lesson-state]").forEach((node) => {
-    const entry = progress[node.dataset.lessonState];
-    if (entry)
-      node.textContent = `Self-assessed · Level ${entry.mastery}/4${entry.nextReview <= today ? " · Time to review" : ""}`;
+    document.querySelectorAll("[data-lesson-state]").forEach((node) => {
+      const entry = progress[node.dataset.lessonState];
+      node.textContent = entry
+        ? `Self-assessed · Level ${entry.mastery}/4 · ${entry.nextReview <= today ? "Time to review" : `Review ${entry.nextReview}`}`
+        : "";
+    });
+  };
+  renderProgress();
+  window.addEventListener("storage", (event) => {
+    if (event.key === STATE_KEY || event.key === null) renderProgress();
+  });
+  window.addEventListener("pageshow", renderProgress);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) renderProgress();
   });
 
   const workspace = document.querySelector(".lesson-workspace");
@@ -122,8 +142,7 @@
   if (workspace) {
     const steps = [...workspace.querySelectorAll(".lesson-step")];
     const nav = [...document.querySelectorAll("[data-step-link]")];
-    const resume = read(RESUME_KEY);
-    const saved = resume[workspace.dataset.lessonId];
+    const saved = read(RESUME_KEY)[workspace.dataset.lessonId];
     let active =
       Number.isInteger(saved) && saved >= 0 && saved < steps.length ? saved : 0;
     const previous = document.getElementById("previous-step");
@@ -147,8 +166,8 @@
       document.getElementById("step-counter").textContent =
         `Step ${index + 1} / ${steps.length}`;
       assessment.hidden = index !== steps.length - 1;
-      answerKey.hidden = index !== steps.length - 1;
-      if (index !== steps.length - 1) answerKey.open = false;
+      answerKey.open = false;
+      const resume = read(RESUME_KEY);
       resume[workspace.dataset.lessonId] = index;
       write(RESUME_KEY, resume);
       if (focus) {
@@ -209,7 +228,15 @@
       status.textContent = write(STATE_KEY, latest)
         ? `Saved level ${mastery}/4. Next review: ${nextReview}. If recall is still difficult, try a different situation now.`
         : "This browser cannot save progress. You can keep learning and record results in a private log.";
+      renderProgress();
     });
+
+  const openQuickPractice = () => {
+    const quick = document.getElementById("quick-practice");
+    if (quick && location.hash === "#quick-practice") quick.open = true;
+  };
+  openQuickPractice();
+  window.addEventListener("hashchange", openQuickPractice);
 
   const search = document.getElementById("phrase-search");
   const groupFilter = document.getElementById("phrase-group-filter");
@@ -244,25 +271,31 @@
     const prompt = box.querySelector(".roleplay-turn");
     const sample = box.querySelector(".roleplay-sample");
     const advance = box.querySelector("[data-turn-next]");
+    const hint = box.querySelector("[data-turn-hint]");
+    const finish = box.querySelector("[data-roleplay-finish]");
     let turn = 0;
     const render = () => {
-      prompt.textContent = turns[turn].prompt;
+      const done = turn === turns.length;
+      prompt.hidden = done;
+      hint.hidden = done;
+      finish.hidden = !done;
+      prompt.textContent = done ? "" : turns[turn].prompt;
       sample.textContent = "";
       sample.hidden = true;
-      box.querySelector("[data-turn-count]").textContent =
-        `Turn ${turn + 1}/${turns.length}`;
-      advance.textContent =
-        turn === turns.length - 1 ? "Start again" : "I’ve replied →";
+      box.querySelector("[data-turn-count]").textContent = done
+        ? "Next: change the situation"
+        : `Turn ${turn + 1}/${turns.length}`;
+      advance.textContent = done ? "Start again" : "I’ve replied →";
     };
     box.hidden = false;
-    box.querySelector("[data-turn-hint]").addEventListener("click", () => {
+    hint.addEventListener("click", () => {
       sample.textContent = turns[turn].hint;
       sample.hidden = false;
     });
     advance.addEventListener("click", () => {
-      turn = (turn + 1) % turns.length;
+      turn = turn === turns.length ? 0 : turn + 1;
       render();
-      prompt.focus();
+      (turn === turns.length ? finish : prompt).focus();
     });
     render();
   });
@@ -296,6 +329,7 @@
       localStorage.removeItem(RESUME_KEY);
       document.getElementById("privacy-status").textContent =
         "Progress cleared in this browser.";
+      renderProgress();
     } catch {
       document.getElementById("privacy-status").textContent =
         "This browser cannot change saved data. You can clear this site’s data in your browser settings.";

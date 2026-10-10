@@ -1,0 +1,14 @@
+{% assign quick_chunk = site.data.chunks | where: 'id', page.new_chunk_ids.first | first %}
+<details class="quick-practice prose" id="quick-practice">
+  <summary>Five minutes: try one phrase</summary>
+  <p>Practiced this lesson before? Recall this phrase. New here? Try a reply with the English you know.</p>
+  <p><strong>Picture it:</strong> {{ quick_chunk.situation }}</p>
+  <blockquote>{{ quick_chunk.cue }}</blockquote>
+  <p>Say a reply before opening the example.</p>
+  <details>
+    <summary>Check one example</summary>
+    <p>{{ quick_chunk.example }}</p>
+  </details>
+  <p>Change one detail and say it again. Talk about your day for a minute, then try the phrase without looking.</p>
+  <p class="small-note">Could you reply and change the detail on your own? This short practice does not mark the whole lesson as learned.</p>
+</details>

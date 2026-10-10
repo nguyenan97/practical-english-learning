@@ -1,0 +1,16 @@
+- label: Recall
+  minutes: 4
+  task: Try a familiar phrase before looking at an example.
+  done: You have tried the prompts, or skipped phrases you have not practiced.
+- label: Learn
+  minutes: 4
+  task: Picture the situation. Say each chunk with one different detail.
+  done: You can explain what each chunk helps you do.
+- label: Practice
+  minutes: 8
+  task: Say your replies aloud. Try the conversation and one changed situation.
+  done: You have tried a conversation and replied when a detail changed.
+- label: Check
+  minutes: 4
+  task: Try the last task without notes. Then check and choose your practice level.
+  done: You know what you could say on your own and what needs another try.

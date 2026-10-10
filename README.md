@@ -13,6 +13,8 @@ Open the [website](https://nguyenan97.github.io/practical-english-learning/) and
 
 Moving between steps does not mark mastery. After trying the exit task, choose a level from 0–4 and identify chunks you used correctly on your own. Progress stays in the current browser. There are no accounts, cross-device sync, or automatic speaking scores. With JavaScript off, you can still read and practice all lessons.
 
+Today explains its suggestion from saved self-assessments: due reviews first, then difficult lessons, then the next lesson without an assessment. Review links open the exit task. “Only five minutes?” offers one phrase with a cue, a closed example and a recall task; it does not record lesson mastery. Without saved assessments, the site makes no claim about what you have learned.
+
 ## Repository structure
 
 ```text
@@ -34,6 +36,8 @@ scripts/                    # curriculum validation and browser smoke checks
 ```
 
 Lesson examples use `_data/chunks.yml`. Repeating a phrase in a practice task is intentional; its metadata should not be maintained in several places. Lesson lists, scenario lists, and phrase-to-lesson links are generated from page metadata.
+
+`_data/lesson_steps.yml` supplies shared step labels, time guides, actions and stopping points. Shared includes resolve lesson/scenario links from IDs. New content needs a lesson, its chunk metadata and a scenario; it does not need a separate Today card or short-practice page.
 
 ## Learning method
 

@@ -3,6 +3,9 @@ layout: default
 ---
 {% assign lessons = site.pages | where_exp: 'item', 'item.lesson_id != nil' | sort: 'order' %}
 {% assign first_lesson = lessons.first %}
+{% assign first_chunk = site.data.chunks | where: 'id', first_lesson.new_chunk_ids.first | first %}
+{% assign guide_minutes = 0 %}
+{% for step in site.data.lesson_steps %}{% assign guide_minutes = guide_minutes | plus: step.minutes %}{% endfor %}
 <section class="home-hero">
   <div class="hero-copy">
     <p class="eyebrow"><span class="green-dot"></span> ENGLISH FOR REAL LIFE</p>
@@ -10,13 +13,19 @@ layout: default
       Learn a little.<br>
       Say more <span>every day.</span>
     </h1>
-    <p class="hero-description">Practice a few useful phrases each day. Then use them in a real conversation.</p>
+    <p class="hero-description">One situation. A few useful phrases. Say them aloud, then try a conversation.</p>
+    <p id="today-reason" class="recommendation-reason" role="status">No self-assessments saved here yet. Start with lesson 01, or choose a situation you need.</p>
     <div class="hero-actions">
       <a class="button primary" id="today-link" href="{{ first_lesson.url | relative_url }}"
         >Start today’s lesson <span aria-hidden="true">→</span></a
       ><a class="text-link" href="{{ '/docs/start-here.html' | relative_url }}">New here? Start with the guide →</a>
     </div>
-    <p class="hero-footnote">20 min <span>·</span> A2–B1 <span>·</span> Try first. Check answers later.</p>
+    <p class="hero-footnote">About {{ guide_minutes }} min <span>·</span> A2–B1 <span>·</span> Try first. Check answers later.</p>
+    <details class="short-session">
+      <summary>Only five minutes?</summary>
+      <p>Try one reply, change a detail, then recall it after a short break.</p>
+      <a id="quick-link" href="{{ first_lesson.url | relative_url }}#quick-practice">Try one phrase →</a>
+    </details>
   </div>
   <aside class="today-card" aria-label="Suggested lesson">
     <div class="today-card-top">
@@ -25,12 +34,10 @@ layout: default
     <span class="tag soft-green" id="today-kind">Your first lesson</span>
     <h2 id="today-title">{{ first_lesson.title }}</h2>
     <p id="today-description">{{ first_lesson.description }}</p>
+    <p class="today-goal"><strong>Your goal:</strong> <span id="today-goal">{{ first_lesson.target }}</span></p>
     <div class="today-example">
-      <span>SAY IT OUT LOUD</span>
-      <p>
-        “I'm getting ready.<br>
-        Give me two minutes.”
-      </p>
+      <span>TRY A REPLY</span>
+      <p id="today-cue">{{ first_chunk.cue }}</p>
     </div>
     <div class="today-card-bottom">
       <span>Picture the situation. Try one sentence.</span><span aria-hidden="true">→</span>
@@ -40,37 +47,12 @@ layout: default
 <section class="daily-path" aria-labelledby="daily-path-title">
   <div class="section-intro">
     <p class="eyebrow">FOUR STEPS TO FOLLOW</p>
-    <h2 id="daily-path-title">20 min, one task at a time.</h2>
+    <h2 id="daily-path-title">{{ guide_minutes }} min, one task at a time.</h2>
   </div>
   <ol class="routine-grid">
-    <li>
-      <span class="step-number">01</span>
-      <div>
-        <h3>Recall <span>4 min</span></h3>
-        <p>Recall a phrase without looking at the example.</p>
-      </div>
-    </li>
-    <li>
-      <span class="step-number">02</span>
-      <div>
-        <h3>Learn <span>4 min</span></h3>
-        <p>Learn 3–5 useful chunks in clear situations.</p>
-      </div>
-    </li>
-    <li>
-      <span class="step-number">03</span>
-      <div>
-        <h3>Practice <span>8 min</span></h3>
-        <p>Change the details. Ask, answer, and role-play.</p>
-      </div>
-    </li>
-    <li>
-      <span class="step-number">04</span>
-      <div>
-        <h3>Check <span>4 min</span></h3>
-        <p>Try without notes, then check your response.</p>
-      </div>
-    </li>
+    {% for item in site.data.lesson_steps %}
+      <li><span class="step-number">0{{ forloop.index }}</span><div><h3>{{ item.label }} <span>{{ item.minutes }} min</span></h3><p>{{ item.task }}</p></div></li>
+    {% endfor %}
   </ol>
 </section>
 <section class="review-panel" id="review-panel" hidden>
@@ -81,6 +63,7 @@ layout: default
   </div>
   <ul id="review-list"></ul>
 </section>
+<p class="notice" id="returning-note" hidden>Back after a break? Try one reply from the suggested review. If it is difficult, use one hint and try again. You can stop after five minutes.</p>
 <section class="lessons-section">
   <div class="section-heading">
     <div>

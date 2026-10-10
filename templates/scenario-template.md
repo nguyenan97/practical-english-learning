@@ -9,6 +9,7 @@ Copy to `scenarios/<stable-id>.md`. Replace placeholders and add 3–5 partner t
 ```yaml
 ---
 layout: default
+lang: en
 title: <Natural situation title>
 scenario_id: <stable-id>
 lesson_id_ref: <existing lesson ID>
@@ -26,13 +27,15 @@ turns:
 
 State who speaks, what is known, and what the learner needs to achieve.
 
+{% raw %}{% include scenario-lesson-link.html %}{% endraw %}
+
 ## Your turn
 
 {% raw %}{% include roleplay.html %}{% endraw %}
 
-## Change the situation and switch roles
+## Change the situation and switch roles {#change-situation}
 
-Give a changed detail, a sample response, and instructions for the learner to play the other role.
+Give a changed detail and instructions for the learner to play the other role. Start the change with **Change:**. Put sample replies inside closed details so the learner can try first.
 
 <details markdown="1">
 <summary>Model dialogue — read after your attempt</summary>
