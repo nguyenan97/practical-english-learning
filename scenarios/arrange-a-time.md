@@ -21,8 +21,7 @@ turns:
 
 You and a friend want coffee this weekend. You can meet on Saturday afternoon at two or three. Find a time you both accept and confirm where to meet.
 
-{% assign lesson = site.pages | where: 'lesson_id', page.lesson_id_ref | first %}
-[Open the lesson]({{ lesson.url | relative_url }}).
+{% include scenario-lesson-link.html %}
 
 ## Your turn
 
@@ -30,9 +29,16 @@ Answer each partner turn in one or two sentences. Use a hint only if you need it
 
 {% include roleplay.html %}
 
-## Change the situation and switch roles
+## Change the situation and switch roles {#change-situation}
 
-**Change:** Your friend says “I can't make it on Saturday.” Suggest Sunday and ask whether the afternoon works: “How about Sunday? Are you free in the afternoon?”
+**Change:** Your friend says “I can't make it on Saturday.” Suggest Sunday and ask whether the afternoon works.
+
+<details markdown="1">
+<summary>One sample reply — open after trying</summary>
+
+“How about Sunday? Are you free in the afternoon?”
+
+</details>
 
 **Switch roles:** Invite your partner, decline their first time politely, and suggest an alternative. Agree only when the time actually suits you.
 

@@ -25,11 +25,17 @@ Focus on what the phrase helps you do: ask someone to repeat. You do not need to
 
 Read and repeat the model to practice saying it. The site has no recorded audio, so this does not replace listening practice with real speech.
 
+After the last partner turn, try the changed situation and switch roles. A fixed script cannot respond to your words; use the AI prompt or a real partner when you want that response.
+
 ## 4. Check, take a short break, and recall again
 
 Try the exit task without notes. Then talk about your morning for one minute and recall the target chunks again. If you forget one, use a short hint and retry with a new example.
 
 Moving to the next step changes what you see. Saving a self-assessment records an attempt to use the English yourself. These are different actions.
+
+## A shorter visit
+
+Use “Five minutes: try one phrase” on a lesson page. Try a reply, check one example, change a detail, then recall it after talking about something else. It does not save a lesson score. Use the full exit task before assessing the whole lesson.
 
 ## Practice with an AI partner
 

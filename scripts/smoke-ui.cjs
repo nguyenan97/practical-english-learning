@@ -59,11 +59,15 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   await page.waitForLoadState("load");
   assert.equal(await page.locator(".lesson-step:visible").count(), 1);
   assert.equal(await page.locator("#assessment").isVisible(), false);
-  assert.equal(await page.locator("#answer-key").isVisible(), false);
+  assert.equal(await page.locator("#answer-key").getAttribute("open"), null);
   await page.locator("#next-step").click();
+  assert.equal(await page.locator("#step-2").isVisible(), true);
+  await page.locator("#answer-key > summary").click();
+  assert.equal(await page.locator("#answer-key .prose").isVisible(), true);
   assert.equal(await page.locator("#step-2").isVisible(), true);
   await page.reload();
   assert.equal(await page.locator("#step-2").isVisible(), true);
+  assert.equal(await page.locator("#answer-key").getAttribute("open"), null);
   assert.equal(
     await page.evaluate(() =>
       localStorage.getItem("daily-english-progress-v1"),
@@ -91,6 +95,12 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
     await page.locator("#today-link").getAttribute("href"),
     /check-understanding/,
   );
+  assert.equal(
+    await page.locator("#today-goal").innerText(),
+    lessons[1].target,
+  );
+  assert.equal(await page.locator("#today-cue").innerText(), lessons[1].cue);
+  assert.match(await page.locator("#today-reason").innerText(), /not due yet/);
   assert.ok(
     (await page.locator("#progress-summary").innerText()).includes(
       `1/${lessons.length}`,
@@ -108,8 +118,13 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   await page.reload();
   assert.equal(await page.locator("#review-panel").isVisible(), true);
   assert.match(await page.locator("#today-link").innerText(), /Review/);
+  assert.match(
+    await page.locator("#today-reason").innerText(),
+    /saved review date/,
+  );
   await page.locator("#today-link").click();
   await page.waitForLoadState("load");
+  assert.equal(await page.locator("#step-4").isVisible(), true);
   await page.locator("#mastery").selectOption("1");
   await page.locator("#attempt-confirmation").check();
   await page.getByRole("button", { name: "Save self-assessment" }).click();
@@ -118,6 +133,20 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   );
   assert.equal(saved[lessons[0].id].successfulOn, null);
   assert.equal(saved[lessons[0].id].mastery, 1);
+  await page.goto(base);
+  assert.match(await page.locator("#today-reason").innerText(), /level 1\/4/);
+  await page.getByText("Only five minutes?", { exact: true }).click();
+  await page.locator("#quick-link").click();
+  await page.waitForFunction(() => document.getElementById("quick-practice")?.open);
+  assert.equal(await page.locator("#quick-practice").getAttribute("open"), "");
+  assert.equal(
+    await page.locator("#quick-practice details").getAttribute("open"),
+    null,
+  );
+  const quickState = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("daily-english-progress-v1")),
+  );
+  assert.equal(quickState[lessons[0].id].mastery, 1);
   await page.goto(`${base}phrases/`);
   await page.locator("#phrase-group-filter").selectOption("planning");
   assert.ok((await page.locator(".phrase-card:visible").count()) >= 4);
@@ -133,6 +162,16 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   assert.equal(await page.locator("[data-roleplay]").isVisible(), true);
   assert.equal(await page.locator(".roleplay-sample").isVisible(), false);
   const firstTurn = await page.locator(".roleplay-turn").innerText();
+  const turnCount = await page
+    .locator("[data-roleplay] script")
+    .evaluate((node) => JSON.parse(node.textContent).length);
+  for (let n = 0; n < turnCount; n++)
+    await page.locator("[data-turn-next]").click();
+  assert.equal(await page.locator("[data-roleplay-finish]").isVisible(), true);
+  await page.locator("[data-roleplay-finish] a").click();
+  assert.equal(new URL(page.url()).hash, "#change-situation");
+  await page.getByRole("button", { name: "Start again", exact: true }).click();
+  assert.equal(await page.locator(".roleplay-turn").innerText(), firstTurn);
   await page.getByRole("button", { name: "One hint" }).click();
   assert.equal(await page.locator(".roleplay-sample").isVisible(), true);
   await page.locator("[data-turn-next]").click();
@@ -148,6 +187,7 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
     "docs/start-here.html",
     "docs/review-and-mastery.html",
     ...lessons.map((item) => item.url.replace(new URL(base).pathname, "")),
+    ...lessons.map((item) => item.scenario.replace(new URL(base).pathname, "")),
   ];
   for (const route of routes) {
     await page.goto(new URL(route, base).href);
@@ -231,6 +271,21 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
     Object.keys(multiTabState).sort(),
     [lessons[0].id, lessons[1].id].sort(),
   );
+  await tabA.goto(base);
+  await tabB.goto(`${base}docs/review-and-mastery.html`);
+  tabB.once("dialog", (dialog) => dialog.accept());
+  await tabB.getByRole("button", { name: "Clear saved progress" }).click();
+  await tabA.waitForFunction(() =>
+    document
+      .getElementById("progress-summary")
+      .textContent.includes("No progress saved"),
+  );
+  assert.match(
+    await tabA.locator("#today-reason").innerText(),
+    /No self-assessments/,
+  );
+  await tabA.goto(new URL(lessons[0].url, base).href + "#step-4");
+  await assess(tabA, 3);
   await tabB.goto(`${base}docs/review-and-mastery.html`);
   tabB.once("dialog", (dialog) => dialog.accept());
   await tabB.getByRole("button", { name: "Clear saved progress" }).click();
@@ -247,6 +302,49 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   );
   assert.deepEqual(Object.keys(afterReset), [lessons[0].id]);
   await tabs.close();
+  // Existing saved records must produce honest recommendations in every state.
+  const recommendations = await browser.newContext({
+    timezoneId: "Asia/Bangkok",
+  });
+  const recPage = await recommendations.newPage();
+  await recPage.clock.install({ time: new Date("2026-10-10T05:00:00Z") });
+  await recPage.goto(base);
+  await recPage.evaluate((items) => {
+    const progress = Object.fromEntries(
+      items.map((item) => [
+        item.id,
+        {
+          mastery: 3,
+          attemptedOn: "2026-10-08",
+          successfulOn: "2026-10-08",
+          nextReview: "2026-10-12",
+          produced: [],
+        },
+      ]),
+    );
+    localStorage.setItem("daily-english-progress-v1", JSON.stringify(progress));
+  }, lessons);
+  await recPage.reload();
+  assert.match(
+    await recPage.locator("#today-reason").innerText(),
+    /Nothing is due yet/,
+  );
+  assert.equal(await recPage.locator("#returning-note").isVisible(), true);
+  await recPage.evaluate((items) => {
+    const progress = JSON.parse(
+      localStorage.getItem("daily-english-progress-v1"),
+    );
+    progress[items[0].id].nextReview = "2026-10-09";
+    progress[items[1].id].nextReview = "2026-10-08";
+    localStorage.setItem("daily-english-progress-v1", JSON.stringify(progress));
+  }, lessons);
+  await recPage.reload();
+  assert.equal(
+    await recPage.locator("#today-goal").innerText(),
+    lessons[1].target,
+  );
+  assert.equal(await recPage.locator("#review-list a").count(), 2);
+  await recommendations.close();
   // A tab left open across midnight must record the day of the actual attempt.
   const overnight = await browser.newContext({ timezoneId: "Asia/Bangkok" });
   const overnightPage = await overnight.newPage();
@@ -262,7 +360,7 @@ const executablePath = process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE;
   await overnight.close();
   assert.deepEqual(failures, [], "Browser errors and failed local requests");
   console.log(
-    "UI smoke checks passed: learning flow, mobile, no-JS/storage fallbacks, multi-tab saves, export after reset and overnight assessment dates.",
+    "UI smoke checks passed: recommendation states, quick practice, closed answers, conversation handoff, mobile, no-JS/storage fallbacks, multi-tab updates, reset/export and overnight dates.",
   );
   await browser.close();
 })().catch((error) => {

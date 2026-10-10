@@ -1,0 +1,2 @@
+{%- assign linked_lesson = site.pages | where: 'lesson_id', page.lesson_id_ref | first -%}
+<a href="{{ linked_lesson.url | relative_url }}#step-3">Return to the lesson →</a>

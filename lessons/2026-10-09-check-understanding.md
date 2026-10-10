@@ -25,7 +25,7 @@ topic_tags:
 - listening
 - confirmation
 description: Ask someone to repeat and confirm the details before you act.
-target: Ask for repetition, slow a conversation down, and confirm one important detail.
+target: Ask someone to repeat, ask them to speak more slowly, and check a detail.
 scenario_id: check-understanding
 ---
 
@@ -67,6 +67,8 @@ Say each chunk once, then cover it and explain its purpose in simple English.
 
 ## Practice — ask, confirm, respond
 
+Spend about five minutes on A–D and three minutes on the conversation in E. Try F on another visit if you need more time.
+
 ### A. Change one detail
 
 Make two versions of each frame:
@@ -100,7 +102,7 @@ Correct these sentences:
 
 ### E. Practice a real call
 
-Open [the unclear-deadline scenario]({{ '/scenarios/check-understanding.html' | relative_url }}). Try the colleague-only turns before reading the model dialogue.
+Open {% include scenario-link.html label="the unclear-deadline scenario" %}. Try the colleague-only turns before reading the model dialogue.
 
 **Changed situation:** The repeated deadline is Thursday, not Friday. Confirm the corrected day.
 
@@ -157,7 +159,7 @@ Open-ended responses can differ. These examples show natural ways to achieve the
 
 1. “Could you say that again, please?”
 2. “Could you speak a little more slowly?”
-3. “Do you mean Friday the sixteenth?”
+3. “Which date do you mean by next Friday?” No date was given, so asking directly is also a valid way to clarify. If you have a possible date in mind, you can ask “Do you mean Friday the sixteenth?”
 4. “Just to check, the call starts at ten, right?”
 
 ### Practice C
@@ -178,11 +180,11 @@ After your partner confirms:
 
 ### Practice E
 
-The full model is in [the scenario]({{ '/scenarios/check-understanding.html' | relative_url }}).
+The full model is in {% include scenario-link.html label="the scenario" %}.
 
 **Changed situation:** “Just to check, you need it by five on Thursday, right?”
 
-**Switch roles:** “Please send it by five on Thursday.” → “Of course. Five on Thursday.” → “Thursday, not Friday.”
+**Switch roles — sample turns:** Say “Please send it by five on Thursday” and wait. If your partner asks you to repeat, say “Of course. Five on Thursday.” If they check Friday instead, say “Thursday, not Friday.” Correct only a detail they actually get wrong.
 
 ### Practice F
 

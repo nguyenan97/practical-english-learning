@@ -26,8 +26,7 @@ You are taking two bags and a box into your home. You can carry the small bag, b
 
 Ask for a clear action, accept useful help, respect the friend's time limit, and offer a small favor in return.
 
-{% assign lesson = site.pages | where: 'lesson_id', page.lesson_id_ref | first %}
-[Open the lesson]({{ lesson.url | relative_url }}).
+{% include scenario-lesson-link.html %}
 
 ## Your turn
 
@@ -37,7 +36,7 @@ Say a reply to each friend turn before continuing. Use a hint only when needed. 
 
 For the first turn, ask your friend to hold the door. Keep the model closed until you have tried.
 
-## Change the situation and switch roles
+## Change the situation and switch roles {#change-situation}
 
 **Change:** Your friend says, “Sorry, I can't carry anything today, but I can hold the door for a moment.” Accept that smaller offer and explain what you will carry yourself. Try your reply before opening the sample.
 

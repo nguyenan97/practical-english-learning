@@ -223,6 +223,8 @@ Use `templates/lesson-template.md` and `templates/scenario-template.md`. Publish
 
 The home page and lesson index are generated from metadata. Do not maintain a duplicate list. Phrase metadata lives in `_data/chunks.yml`; all lesson IDs, new/review chunk IDs and prerequisites must resolve. A `lesson_id` represents curriculum content, not proof of completion. Dates in lesson front matter are publication dates.
 
+Keep the daily route within the shared time guides in `_data/lesson_steps.yml`. The layout supplies each step's action and stopping point. Label extra practice as optional for another visit. Use the shared lesson/scenario link includes; keep scenario samples closed until requested. Today uses the lesson's description, target and first new chunk's cue, so write them as clear, useful learner instructions.
+
 Refer to `docs/adding-a-lesson.md` for the repository workflow and `docs/review-and-mastery.md` for the learner workflow.
 
 ## Validation

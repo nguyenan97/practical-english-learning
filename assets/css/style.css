@@ -941,6 +941,37 @@ legend {
   flex-wrap: wrap;
   margin-top: 20px;
 }
+.recommendation-reason {
+  font-size: 0.95rem;
+  padding-left: 14px;
+  border-left: 3px solid var(--green);
+}
+.short-session {
+  max-width: 450px;
+  font-size: 0.9rem;
+}
+.today-goal {
+  font-size: 0.9rem;
+}
+.step-guide {
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  border-radius: 10px;
+  background: var(--light-green);
+  font-size: 0.9rem;
+}
+.step-guide p:last-child {
+  margin-bottom: 0;
+}
+.quick-practice {
+  margin-top: 24px;
+}
+[data-roleplay-finish] {
+  padding: 16px;
+  margin-bottom: 16px;
+  background: var(--light-green);
+  border-radius: 10px;
+}
 @media (min-width: 1400px) {
   .home-main {
     padding-top: 76px;

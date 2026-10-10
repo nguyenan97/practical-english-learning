@@ -25,8 +25,7 @@ topic_tags:
 - availability
 - alternatives
 description: Suggest a time, offer another option, and agree on a clear plan.
-target: Arrange a meeting by asking about availability, suggesting a time, and offering
-  another option.
+target: Ask when someone is free, suggest a time, and agree on a plan.
 scenario_id: arrange-a-time
 ---
 
@@ -68,6 +67,8 @@ Say the chunks aloud, then explain each purpose without copying the table.
 
 ## Practice — build a workable plan
 
+Spend about five minutes on A–D and three minutes on the conversation in E. Try F on another visit if you need more time.
+
 ### A. Change one detail
 
 Make two versions of each frame:
@@ -99,7 +100,7 @@ Correct these sentences:
 
 ### E. Try the whole conversation
 
-Use [the coffee-planning scenario]({{ '/scenarios/arrange-a-time.html' | relative_url }}). Answer the friend-only turns without reading the model.
+Use {% include scenario-link.html label="the coffee-planning scenario" %}. Answer the friend-only turns without reading the model.
 
 **Changed situation:** Your friend cannot meet on Saturday. Suggest Sunday and ask about a time.
 
@@ -179,11 +180,11 @@ After they agree:
 
 ### Practice E
 
-See [the scenario]({{ '/scenarios/arrange-a-time.html' | relative_url }}) for the full model.
+See {% include scenario-link.html label="the scenario" %} for the full model.
 
 **Changed situation:** “How about Sunday? Are you free in the afternoon?”
 
-**Switch roles:** “Are you free on Saturday?” → “I can't make it at two. How about three?” → “That works for me.”
+**Switch roles — sample turns:** Ask “Are you free on Saturday?” and wait. If your partner suggests two, say “I can't make it at two. How about three?” If they agree, confirm “Let's meet on Saturday at three.” Change your reply if they suggest something else.
 
 ### Practice F
 

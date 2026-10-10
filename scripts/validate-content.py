@@ -56,7 +56,18 @@ def curriculum():
                     f'{path.relative_to(ROOT)}: published page lang must be en')
     chunks = yaml.safe_load((ROOT / '_data/chunks.yml').read_text())
     groups = yaml.safe_load((ROOT / '_data/phrase_groups.yml').read_text())
+    guides = yaml.safe_load((ROOT / '_data/lesson_steps.yml').read_text())
+    require(isinstance(guides, list) and len(guides) == 4, 'lesson_steps: exactly four guides required')
+    if isinstance(guides, list):
+        require([item.get('label') for item in guides if isinstance(item, dict)] == ['Recall','Learn','Practice','Check'],
+                'lesson_steps: use Recall, Learn, Practice, Check in order')
+        for item in guides:
+            require(isinstance(item, dict) and isinstance(item.get('minutes'), int) and item['minutes'] > 0
+                    and all(isinstance(item.get(f), str) and item[f].strip() for f in ['task','done']),
+                    'lesson_steps: each guide needs positive minutes, task and done')
     unique(chunks, 'id', 'chunks'); unique(groups, 'id', 'groups')
+    phrase_texts = [' '.join(str(item.get('text', '')).casefold().split()) for item in chunks]
+    require(len(phrase_texts) == len(set(phrase_texts)), 'chunks: duplicate phrase text; reuse its existing ID')
     chunk_map = {item['id']: item for item in chunks}
     group_ids = {item['id'] for item in groups}
     lessons = []
@@ -67,6 +78,8 @@ def curriculum():
         label = str(path.relative_to(ROOT))
         fields = ['layout', 'title', 'lesson_id', 'date', 'order', 'level', 'track', 'track_label', 'lesson_key', 'anchor', 'duration_minutes', 'new_chunk_ids', 'review_chunk_ids', 'prerequisite_lesson_ids', 'topic_tags', 'description', 'target', 'scenario_id']
         for field in fields: require(field in meta and meta[field] is not None, f'{label}: missing {field}')
+        for field in ['title','description','target']:
+            require(isinstance(meta.get(field), str) and bool(meta[field].strip()), f'{label}: {field} must be non-empty text')
         require(meta.get('layout') == 'lesson', f'{label}: use lesson layout')
         try: dt.date.fromisoformat(str(meta.get('date')))
         except ValueError: errors.append(f'{label}: date must be YYYY-MM-DD')
@@ -83,6 +96,10 @@ def curriculum():
         require(3 <= len(new) <= 5, f'{label}: expected 3–5 new chunks')
         require(not set(new) & set(review), f'{label}: new and review overlap')
         require(all(x in chunk_map for x in new + review), f'{label}: unknown chunk reference')
+        for id in new:
+            if id in chunk_map:
+                require(chunk_map[id].get('lesson_id') == meta.get('lesson_id'),
+                        f'{label}: new chunk {id} must link back to its introducing lesson')
         require(body.count('<!-- step -->') == 3, f'{label}: exactly three step markers required')
         require(body.count('<!-- answers -->') == 1, f'{label}: exactly one answer marker required')
         sections = body.split('<!-- answers -->')
@@ -115,6 +132,7 @@ def curriculum():
         for turn in turns:
             require(isinstance(turn, dict) and isinstance(turn.get('prompt'), str) and isinstance(turn.get('hint'), str), f'{label}: each turn needs prompt and hint')
         require('Model dialogue' in body and 'Switch roles' in body and '**Change:**' in body, f'{label}: model, changed situation and role reversal required')
+        require('{#change-situation}' in body, f'{label}: change-situation heading ID required for the practice handoff')
         model = body.split('Model dialogue',1)[-1].split('</details>',1)[0]
         require(6 <= len(re.findall(r'^\*\*(?:You|Colleague|Friend):\*\*',model,re.M)) <= 10, f'{label}: model must contain 6–10 turns')
     unique(scenarios, 'scenario_id', 'scenarios')

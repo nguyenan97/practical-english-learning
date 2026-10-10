@@ -10,9 +10,9 @@ You do not need to read the whole library. Choose one lesson, find a place to sp
 ## What should I study today?
 
 1. Open [Today]({{ '/' | relative_url }}).
-2. If a review is due, do that first. Reviews appear only after you save a self-assessment in this browser.
+2. Read the reason below the introduction. Today suggests a due review first, then a lesson you found difficult, then the next lesson without a saved self-assessment.
 3. No saved progress? Start with lesson 01, or choose [a situation you need]({{ '/lessons/' | relative_url }}).
-4. Start the lesson and follow its four steps. Each step tells you what to do.
+4. For a new lesson, follow its four steps. For a review, try the exit task first: this is the last short task you do without notes. Each step tells you what to do and when to move on.
 
 ## How do I spend the 20 minutes?
 
@@ -27,7 +27,7 @@ A **chunk** is a group of words you can remember and use together, such as “Co
 
 ## When should I check the answers?
 
-Try first, even if your reply is not perfect. If you get stuck, picture the situation or ask for one short hint. Then check the answer key at the end, notice what to change, and try again with different details. Reading the answer aloud is useful practice, but it does not show that you can recall it.
+Try first, even if your reply is not perfect. If you get stuck, picture the situation or ask for one short hint. Open the answer key below the lesson to check a task without leaving your step. Close it and try again with different details. Moving to another step closes the answers. Reading a sample aloud does not show that you can recall it.
 
 ## How do I know I have learned it?
 
@@ -37,7 +37,7 @@ You can choose a suitable phrase, say it without reading, and change the details
 
 Return to a review. Do not try to catch up by reading a long list. If recall is difficult, practice one phrase in an easier situation and revisit it the next day. Add new material only while you can still focus.
 
-**Only five minutes today?** Choose one older phrase, use it in two situations, and check it. You do not need a new lesson.
+**Only five minutes today?** Open “Only five minutes?” on Today and follow “Try one phrase.” Say a reply before opening the example, change a detail, then recall it after a short break. If you are new, use the English you know. This does not mark a whole lesson as learned.
 
 [Practice guide]({{ '/docs/daily-routine.html' | relative_url }}) · [Review and self-assessment]({{ '/docs/review-and-mastery.html' | relative_url }})
 
